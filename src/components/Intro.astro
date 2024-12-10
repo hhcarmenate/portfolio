@@ -1,0 +1,13 @@
+---
+const {title} = Astro.props
+---
+
+<div class="description w-1/2 flex flex-col justify-center">
+    <div class="my-photo w-36 h-36 border rounded-full overflow-hidden">
+        <img src="../../public/16532763.png" alt="My photo" class="w-full h-full object-cover">
+    </div>
+    <h2 class="text-2xl font-bold mt-5">
+        {title}
+    </h2>
+    <slot />
+</div>

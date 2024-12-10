@@ -2,6 +2,9 @@
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+import Intro from "../components/Intro.astro";
+
+const { title } = Astro.props
 ---
 
 <!DOCTYPE html>
@@ -11,16 +14,30 @@ import Footer from "../components/Footer.astro";
       rel="stylesheet"
     />
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <title>{title}</title>
   </head>
   <body class="bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(255,102,102,0.3),rgba(255,255,255,0))] flex flex-col min-h-[100vh] min-w-[100vw] font-sans  text-white">
     <Navbar />
     <main class="flex-grow flex-shrink-0">
-      <slot />
+      <div id="container" class="container w-full min-w-screen mx-auto min-h-screen flex items-center justify-center">
+        <div class="welcome-container w-full flex flex-row justify-between">
+          <Intro title="Full Stack Developer">
+            <p>
+              +10 year of Experience. <span class="text-yellow-300/50">Web developer, Backend and FrontEnd.</span>
+              <span class="text-red-200/75">From Miami, Florida.</span> Specialized in
+              custom-unique solutions
+            </p>
+          </Intro>
+          <slot />
+        </div>
+      </div>
     </main>
     <Footer />
   </body>
 </html>
 
-<style>
+<style is:global>
+  :root {
+    color-scheme: light dark;
+  }
 </style>

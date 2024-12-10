@@ -1,0 +1,39 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+import Portfolio from "./icons/Portfolio.astro"
+
+const experience = [
+    {
+        title: "Test title",
+        date: "April 2022",
+        description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                      Assumenda aut dicta dolores enim facilis
+                      fugiat impedit ipsam placeat rerum sequi! Error quas qui 
+                      quibusdam quisquam recusandae sequi soluta unde voluptates.`,
+        links: [
+            "https://www.htlkeys.com/",
+            "https://htltech.com/",
+            "https://corporate.openlane.com/"
+        ]
+    }
+]
+---
+
+<div class="some-content w-1/2 text-white">
+    <div class="title flex flex-row gap-x-2 justify-start items-center">
+        <Portfolio customClass="size-6 mt-1"/>
+        <h2 class="text-2xl font-bold text-white underline">
+            Experience
+        </h2>
+    </div>
+
+    <div class="experience-content prose mt-4 text-white">
+        <ol class="relative border-s border-gray-200 dark:border-gray-700">
+            {
+                experience.map((item) => (
+                    <ExperienceItem {...item} />
+                ))
+            }
+        </ol>
+    </div>
+</div>
