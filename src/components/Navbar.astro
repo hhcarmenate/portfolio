@@ -1,0 +1,26 @@
+---
+const links = [
+  { name: "Experience", href: "/experience" },
+  { name: "Projects", href: "/projects" },
+  { name: "Contact", href: "/contac" },
+];
+---
+
+<nav
+  class="bg-transparent fixed top-0 w-full px-8 py-4 flex justify-between items-center"
+>
+  <a href="#" class="text-xl font-bold">
+    <h2>
+      Henry Carmenate
+    </h2>
+  </a>
+  <div class="space-x-6">
+    {
+      links.map((link, index) => (
+        <a href={link.href} class="hover:text-blue-500 transition">
+          {link.name}
+        </a>
+      ))
+    }
+  </div>
+</nav>
