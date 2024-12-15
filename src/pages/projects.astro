@@ -1,0 +1,41 @@
+---
+import Project from "../components/ProjectView.astro";
+import Base from "../layouts/Base.astro";
+import Portfolio from "../components/icons/Portfolio.astro";
+import Projects from "../components/icons/Projects.astro";
+const PROJECTS = [
+    {
+        title: "Taskcraft.io - Easy to use task manager",
+        description:
+            "App designed to efficiently manage shared workspaces, promoting real-time collaboration and " +
+            "enhancing teamwork. Built with cutting-edge technologies like Laravel 11 and Vue 3, it offers a seamless, " +
+            "modern experience tailored to the needs of today's professional environment. 🚀🌐",
+        links: [],
+        github: "https://github.com/hhcarmenate/taskCraft.io",
+        image: '/projects/taskcraftio2.webp',
+        tags: ['php', 'javascript', 'mysql', 'laravel', 'vuejs', 'tailwind']
+    }
+]
+---
+<Base title="Henry Carmenate | Experience" >
+    <div class="projects-container flex flex-col gap-y-4 w-[50%]
+        overflow-y-auto
+            scrollbar-thumb-rounded-sm scrollbar-track-rounded-full scrollbar-thin
+            scrollbar-thumb-red-950/55 scrollbar-track-gray-900 h-[75%]
+    ">
+        <div class="title flex flex-row gap-x-2 justify-start items-center">
+            <Projects customClass="size-6 mt-1"/>
+            <h2 class="text-2xl font-bold text-white underline">
+                Projects
+            </h2>
+        </div>
+        <div class="flex flex-col gap-y-12">
+            {
+                PROJECTS.map((project) => (
+                        <Project project={project} />
+                ))
+            }
+        </div>
+    </div>
+
+</Base>
