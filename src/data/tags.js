@@ -8,6 +8,17 @@ import ExpressIcon from "../components/icons/ExpressIcon.astro"
 import VueIcon from "../components/icons/VueIcon.astro"
 import ReactIcon from "../components/icons/ReactIcon.astro"
 import MysqlIcon from "../components/icons/MysqlIcon.astro"
+import MongoIcon from "../components/icons/MongoIcon.astro"
+import ViteIcon from "../components/icons/ViteIcon.astro"
+import PiniaIcon from "../components/icons/PiniaIcon.astro"
+import SvelteIcon from "../components/icons/SvelteIcon.astro"
+import AstroIcon from "../components/icons/AstroIcon.astro"
+import jQueryIcon from "../components/icons/jQueryIcon.astro"
+import RedisIcon from "../components/icons/RedisIcon.astro"
+import DockerIcon from "../components/icons/DockerIcon.astro"
+import TailwindIcon from "../components/icons/TailwindIcon.astro"
+import BootstrapIcon from "../components/icons/BootstrapIcon.astro"
+import FlowbiteIcon from "../components/icons/FlowbiteIcon.astro"
 
 export const TAGS = {
     PHP: {
@@ -58,17 +69,17 @@ export const TAGS = {
     MongoDB: {
         name: "MongoDB",
         class: "bg-green-700 text-white",
-        icon: null, // Replace with MongoDB icon component
+        icon: MongoIcon,
     },
     Vite: {
         name: "Vite",
         class: "bg-purple-500 text-white",
-        icon: null, // Replace with Vite icon component
+        icon: ViteIcon,
     },
     Pinia: {
         name: "Pinia",
         class: "bg-yellow-400 text-black",
-        icon: null, // Replace with Pinia icon component
+        icon: PiniaIcon,
     },
     React: {
         name: "React",
@@ -78,46 +89,41 @@ export const TAGS = {
     Svelte: {
         name: "Svelte",
         class: "bg-orange-500 text-white",
-        icon: null, // Replace with Svelte icon component
+        icon: SvelteIcon,
     },
     Astro: {
         name: "Astro",
         class: "bg-purple-700 text-white",
-        icon: null, // Replace with Astro icon component
+        icon: AstroIcon,
     },
     jQuery: {
         name: "jQuery",
         class: "bg-blue-900 text-white",
-        icon: null, // Replace with jQuery icon component
+        icon: jQueryIcon,
     },
     Redis: {
         name: "Redis",
         class: "bg-red-600 text-white",
-        icon: null, // Replace with Redis icon component
+        icon: RedisIcon,
     },
     Docker: {
         name: "Docker",
         class: "bg-blue-800 text-white",
-        icon: null, // Replace with Docker icon component
-    },
-    Realtime: {
-        name: "Realtime",
-        class: "bg-green-400 text-black",
-        icon: null, // Replace with Realtime icon component
+        icon: DockerIcon,
     },
     Tailwind: {
         name: "Tailwind CSS",
         class: "bg-teal-500 text-white",
-        icon: null, // Replace with Tailwind CSS icon component
+        icon: TailwindIcon, // Replace with Tailwind CSS icon component
     },
     Bootstrap: {
         name: "Bootstrap",
         class: "bg-purple-800 text-white",
-        icon: null, // Replace with Bootstrap icon component
+        icon: BootstrapIcon, // Replace with Bootstrap icon component
     },
-    Bulma: {
-        name: "Bulma",
+    Flowbite: {
+        name: "Flowbite",
         class: "bg-green-400 text-white",
-        icon: null, // Replace with Bulma icon component
+        icon: FlowbiteIcon, // Replace with Bulma icon component
     },
 }
