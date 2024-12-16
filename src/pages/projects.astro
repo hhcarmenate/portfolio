@@ -1,8 +1,9 @@
 ---
-import Project from "../components/ProjectView.astro";
 import Base from "../layouts/Base.astro";
-import Portfolio from "../components/icons/Portfolio.astro";
-import Projects from "../components/icons/Projects.astro";
+import ProjectComponent from "../components/ProjectComponent.astro";
+import ProjectsIcon from "../components/icons/ProjectsIcon.astro";
+
+
 const PROJECTS = [
     {
         title: "Taskcraft.io - Easy to use task manager",
@@ -24,7 +25,7 @@ const PROJECTS = [
             scrollbar-thumb-red-950/55 scrollbar-track-gray-900 h-[75%]
     ">
         <div class="title flex flex-row gap-x-2 justify-start items-center">
-            <Projects customClass="size-6 mt-1"/>
+            <ProjectsIcon customClass="size-6 mt-1"/>
             <h2 class="text-2xl font-bold text-white underline">
                 Projects
             </h2>
@@ -32,7 +33,7 @@ const PROJECTS = [
         <div class="flex flex-col gap-y-12">
             {
                 PROJECTS.map((project) => (
-                        <Project project={project} />
+                        <ProjectComponent project={project} />
                 ))
             }
         </div>
