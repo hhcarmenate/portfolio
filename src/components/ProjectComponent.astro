@@ -27,7 +27,7 @@ const { project } = Astro.props
             {
                 project.tags.map((tag) => (
                     <li>
-                        <span class=`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`>
+                        <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
                             <tag.icon class="size-4" />
                             {tag.name}
                         </span>
