@@ -1,3 +1,5 @@
+import { TAGS } from "./tags.js"
+
 export const PROJECTS = [
     {
         title: "Taskcraft.io - Easy to use task manager",
@@ -8,7 +10,7 @@ export const PROJECTS = [
         links: [],
         github: "https://github.com/hhcarmenate/taskCraft.io",
         image: '/projects/taskcraftio2.webp',
-        tags: ['php', 'javascript', 'mysql', 'laravel', 'vuejs', 'tailwind']
+        tags: [TAGS.PHP, TAGS.JavaScript, TAGS.MySQL, TAGS.Laravel, TAGS.VueJS, TAGS.Tailwind]
     },
     {
         title: "Link.io - A link shortened",
@@ -21,6 +23,6 @@ export const PROJECTS = [
         links: [],
         github: "https://github.com/hhcarmenate/taskCraft.io",
         image: '/projects/taskcraftio2.webp',
-        tags: ['javascript', 'node', 'express', 'mongoDB', 'svelte', 'tailwind']
+        tags: [TAGS.JavaScript, TAGS.Node, TAGS.Express, TAGS.MongoDB, TAGS.Svelte, TAGS.Tailwind]
     }
 ]
