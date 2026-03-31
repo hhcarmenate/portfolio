@@ -1,0 +1,164 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Site-relative path to Open Graph image (default /og/og-share.png) */
+  image?: string;
+  imageAlt?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = 'Henry Carmenate — Senior Full-Stack Engineer (Laravel, Vue, AWS). Fintech & SaaS. Portfolio.',
+  image = '/og/og-share.png',
+  imageAlt = 'Henry Carmenate — Senior Full-Stack Engineer',
+  noindex = false,
+} = Astro.props;
+
+const canonicalURL = Astro.site
+  ? new URL(Astro.url.pathname, Astro.site)
+  : new URL(Astro.url.pathname, Astro.url.origin);
+
+const ogImageURL = new URL(image, Astro.site ?? Astro.url.origin);
+
+/** Must match dimensions of the file at `public/og/og-share.png` (IHDR). Replace image and update if you swap the asset. */
+const OG_IMAGE_WIDTH = 2752;
+const OG_IMAGE_HEIGHT = 1536;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Henry Carmenate',
+  url: canonicalURL.href,
+  image: ogImageURL.href,
+  jobTitle: 'Senior Full-Stack Engineer',
+  email: 'henrycarmenateg@gmail.com',
+  sameAs: [
+    'https://www.linkedin.com/in/henry-carmenate/',
+    'https://github.com/hhcarmenate',
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Henry Carmenate" />
+    <meta name="theme-color" content="#060a14" />
+    {noindex ? (
+      <meta name="robots" content="noindex, nofollow" />
+    ) : (
+      <meta name="robots" content="index, follow" />
+    )}
+
+    <link rel="canonical" href={canonicalURL.href} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL.href} />
+    <meta property="og:site_name" content="Henry Carmenate" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={ogImageURL.href} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content={String(OG_IMAGE_WIDTH)} />
+    <meta property="og:image:height" content={String(OG_IMAGE_HEIGHT)} />
+    <meta property="og:image:alt" content={imageAlt} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL.href} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    <!-- Favicons (public/favicon/) -->
+    <link rel="icon" href="/favicon/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <title>{title}</title>
+  </head>
+
+  <body>
+    <noscript>
+      <style>
+        .reveal {
+          opacity: 1 !important;
+          transform: none !important;
+          filter: none !important;
+        }
+      </style>
+    </noscript>
+
+    <slot />
+
+    <script>
+      // Set current year in footer
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+      // Smooth scrolling for internal anchors
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener('click', (e) => {
+          const href = a.getAttribute('href');
+          if (!href || href === '#') return;
+
+          const el = document.querySelector(href);
+          if (!el) return;
+
+          e.preventDefault();
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+
+      // Scroll reveal (IntersectionObserver)
+      function setupReveal() {
+        const revealEls = Array.from(document.querySelectorAll('.reveal'));
+        if (revealEls.length === 0) return;
+
+        const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (prefersReduced) {
+          revealEls.forEach((el) => el.classList.add('reveal--visible'));
+        } else {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('reveal--visible');
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+          );
+
+          revealEls.forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+              el.classList.add('reveal--visible');
+            } else {
+              observer.observe(el);
+            }
+          });
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupReveal);
+      } else {
+        setupReveal();
+      }
+    </script>
+  </body>
+</html>

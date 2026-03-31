@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+:root {
+  --accent-1: #2563eb; /* electric blue */
+  --accent-2: #22d3ee; /* neon cyan */
+  --bg-1: #060a14;
+  --bg-2: #0b1220;
+  --grid-color: rgba(255, 255, 255, 0.04);
+
+  --c-primary: var(--accent-2);
+  --c-secondary: var(--accent-1);
+  --neon-cyan: rgba(34, 211, 238, 0.9);
+
+  /* tech-lux accent */
+  --lux-gold: #c6a85b;
+  --lux-gold-soft: rgba(198, 168, 91, 0.35);
+  --lux-white-soft: rgba(255, 255, 255, 0.1);
+
+  --nav-height: 72px;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: radial-gradient(circle at 20% 0%, rgba(37, 99, 235, 0.25), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(34, 211, 238, 0.18), transparent 45%),
+    linear-gradient(var(--bg-1), var(--bg-2));
+  color: #e5e7eb;
+  position: relative;
+}
+
+/* Subtle ambient texture background (with film grain) */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background-image:
+    radial-gradient(circle at 30% 20%, rgba(37, 99, 235, 0.1), transparent 52%),
+    radial-gradient(circle at 70% 60%, rgba(34, 211, 238, 0.08), transparent 58%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-size: auto, auto, 240px 240px;
+  mix-blend-mode: overlay;
+  opacity: 0.55;
+}
+
+/* Keep content above background overlay */
+header,
+main,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Focus visible outline for accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
+}
+
+/* Text selection styling */
+::selection {
+  background: var(--accent-2);
+  color: var(--bg-1);
+}
+
+h1,
+h2,
+h3 {
+  text-balance: true;
+}
+
+h1 {
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 24px rgba(34, 211, 238, 0.18);
+}
+
+h2 {
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+
+/* Section-level h2 divider (scoped via class) */
+h2.h2-divider::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 1px;
+  margin-top: 10px;
+  background: linear-gradient(90deg, var(--lux-gold-soft), transparent);
+}
+
+.section-spacing {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+@media (max-width: 768px) {
+  .section-spacing {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+.subtle-muted {
+  color: #9ca3af;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card-premium {
+  position: relative;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  overflow: hidden;
+}
+
+/* Inner highlight (tech-lux) */
+.card-premium::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.08), transparent 45%),
+    radial-gradient(circle at 80% 100%, rgba(198, 168, 91, 0.06), transparent 55%);
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+.card-premium::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(120deg, var(--accent-1), var(--accent-2), var(--accent-1));
+  background-size: 200% 200%;
+  animation: gradientShift 7s ease infinite;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.22;
+}
+
+.card-premium:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7), 0 0 30px var(--lux-gold-soft);
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  color: #fff;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 32px rgba(34, 211, 238, 0.28);
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Scroll reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  filter: blur(6px);
+  transition: opacity 700ms ease, transform 700ms ease, filter 700ms ease;
+}
+
+.reveal.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* Fallback for no-js */
+.no-js .reveal {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}
+
+/* Tech-lux refinement layer */
+
+/* Elegant section dividers */
+.lux-divider {
+  height: 1px;
+  width: 120px;
+  margin-top: 14px;
+  background: linear-gradient(90deg, transparent, var(--lux-gold), transparent);
+  opacity: 0.6;
+}
+
+/* Premium subtle glow on hover cards */
+.ring-brand {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Lux halo */
+.ring-brand:hover {
+  box-shadow: 0 0 25px var(--lux-gold-soft);
+}
+
+/* Neon sheen sweep (tech-lux) */
+.ring-brand::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-130%) skewX(-18deg);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    rgba(34, 211, 238, 0.16),
+    transparent
+  );
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ring-brand:hover::before {
+  opacity: 1;
+  animation: sheen 900ms ease;
+}
+
+@keyframes sheen {
+  0% {
+    transform: translateX(-130%) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(130%) skewX(-18deg);
+  }
+}
+
+/* Section divider with subtle gradient */
+.section-divider {
+  border-top: 1px solid;
+  border-image: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.2), transparent) 1;
+  margin: 20px 0;
+}
+
+/* Nav link hover transitions */
+nav a {
+  transition: color 0.25s ease, border-color 0.25s ease;
+}

@@ -1,0 +1,189 @@
+---
+// No props needed for this component
+---
+
+<header
+  class="sticky top-0 z-50 border-b border-white/0 bg-white/0 transition-all duration-300"
+  id="header"
+>
+  <div class="mx-auto max-w-7xl px-6 py-4">
+    <nav
+      aria-label="Main navigation"
+      class="flex items-center justify-between"
+    >
+      <!-- Logo / Brand -->
+      <a
+        href="#top"
+        class="inline-flex items-center gap-2 font-semibold tracking-tight transition-colors duration-300 hover:text-cyan-300"
+      >
+        <span
+          class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/5 ring-1 ring-white/10"
+        >
+          <span class="text-sm" style="color: var(--c-primary)">HC</span>
+        </span>
+        <span style="color: var(--neon-cyan); text-shadow: 0 0 8px var(--neon-cyan);"
+          >HENRY CARMENATE</span
+        >
+      </a>
+
+      <!-- Hamburger Menu (Mobile) -->
+      <input
+        type="checkbox"
+        id="nav-toggle"
+        class="hidden"
+        aria-label="Toggle navigation menu"
+      />
+      <label
+        for="nav-toggle"
+        class="flex cursor-pointer flex-col gap-1.5 md:hidden"
+      >
+        <span
+          class="block h-0.5 w-6 rounded-full bg-white/70 transition-all duration-300"
+        ></span>
+        <span
+          class="block h-0.5 w-6 rounded-full bg-white/70 transition-all duration-300"
+        ></span>
+        <span
+          class="block h-0.5 w-6 rounded-full bg-white/70 transition-all duration-300"
+        ></span>
+      </label>
+
+      <!-- Navigation Links -->
+      <div
+        class="absolute left-0 right-0 top-full hidden flex-col gap-2 border-b border-white/10 bg-white/5 p-5 backdrop-blur-md md:relative md:top-auto md:flex md:flex-row md:border-none md:bg-transparent md:p-0 md:backdrop-blur-none"
+        id="nav-menu"
+      >
+        <a
+          href="#projects"
+          class="nav-link rounded-xl px-3 py-2 text-sm text-slate-200/90 transition-all duration-300 hover:bg-white/5 hover:underline"
+          data-section="projects"
+        >
+          Projects
+        </a>
+        <a
+          href="#experience"
+          class="nav-link rounded-xl px-3 py-2 text-sm text-slate-200/90 transition-all duration-300 hover:bg-white/5 hover:underline"
+          data-section="experience"
+        >
+          Experience
+        </a>
+        <a
+          href="#skills"
+          class="nav-link rounded-xl px-3 py-2 text-sm text-slate-200/90 transition-all duration-300 hover:bg-white/5 hover:underline"
+          data-section="skills"
+        >
+          Skills
+        </a>
+        <a
+          href="#contact"
+          class="nav-link rounded-xl px-3 py-2 text-sm text-slate-200/90 transition-all duration-300 hover:bg-white/5 hover:underline"
+          data-section="contact"
+        >
+          Contact
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Mobile hamburger toggle
+  const navToggle = document.getElementById('nav-toggle');
+  const navMenu = document.getElementById('nav-menu');
+
+  navToggle?.addEventListener('change', () => {
+    if (navToggle.checked) {
+      navMenu?.classList.remove('hidden');
+    } else {
+      navMenu?.classList.add('hidden');
+    }
+  });
+
+  // Close menu when a link is clicked
+  document.querySelectorAll('.nav-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      if (navToggle) navToggle.checked = false;
+      navMenu?.classList.add('hidden');
+    });
+  });
+
+  // Sticky header scroll effect
+  const header = document.getElementById('header');
+  let lastScrollY = 0;
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+
+    if (scrollY > 10) {
+      header?.classList.add('border-white/10', 'bg-white/5', 'backdrop-blur');
+      header?.classList.remove('bg-white/0', 'border-white/0');
+    } else {
+      header?.classList.remove('border-white/10', 'bg-white/5', 'backdrop-blur');
+      header?.classList.add('bg-white/0', 'border-white/0');
+    }
+
+    lastScrollY = scrollY;
+  });
+
+  // Active section highlight using IntersectionObserver
+  const sections = document.querySelectorAll(
+    'section[id="projects"], section[id="experience"], section[id="skills"], section[id="contact"]'
+  );
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navLinks.forEach((link) => {
+            link.classList.remove(
+              'text-cyan-300',
+              'font-semibold',
+              'ring-1',
+              'ring-cyan-500/30',
+              'bg-cyan-500/10'
+            );
+            link.classList.add('text-slate-200/90');
+
+            if (link.getAttribute('data-section') === entry.target.id) {
+              link.classList.remove('text-slate-200/90');
+              link.classList.add(
+                'text-cyan-300',
+                'font-semibold',
+                'ring-1',
+                'ring-cyan-500/30',
+                'bg-cyan-500/10'
+              );
+            }
+          });
+        }
+      });
+    },
+    {
+      threshold: 0.3,
+      rootMargin: '-72px 0px -66% 0px',
+    }
+  );
+
+  sections.forEach((section) => {
+    observer.observe(section);
+  });
+</script>
+
+<style>
+  #nav-toggle:checked ~ #nav-menu {
+    display: flex;
+  }
+
+  #nav-toggle:checked ~ label span:nth-child(1) {
+    transform: rotate(45deg) translateY(12px);
+  }
+
+  #nav-toggle:checked ~ label span:nth-child(2) {
+    opacity: 0;
+  }
+
+  #nav-toggle:checked ~ label span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-12px);
+  }
+</style>
