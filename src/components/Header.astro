@@ -92,7 +92,7 @@
   const navMenu = document.getElementById('nav-menu');
 
   navToggle?.addEventListener('change', () => {
-    if (navToggle.checked) {
+    if (navToggle instanceof HTMLInputElement && navToggle.checked) {
       navMenu?.classList.remove('hidden');
     } else {
       navMenu?.classList.add('hidden');
@@ -102,7 +102,7 @@
   // Close menu when a link is clicked
   document.querySelectorAll('.nav-link').forEach((link) => {
     link.addEventListener('click', () => {
-      if (navToggle) navToggle.checked = false;
+      if (navToggle instanceof HTMLInputElement) navToggle.checked = false;
       navMenu?.classList.add('hidden');
     });
   });
@@ -125,49 +125,73 @@
     lastScrollY = scrollY;
   });
 
-  // Active section highlight using IntersectionObserver
-  const sections = document.querySelectorAll(
-    'section[id="projects"], section[id="experience"], section[id="skills"], section[id="contact"]'
-  );
+  // Active nav: last section whose top has crossed the "activation line" below the sticky header.
+  // IntersectionObserver + aggressive rootMargin only matched Skills reliably; scroll position is clearer.
   const navLinks = document.querySelectorAll('.nav-link');
+  const sectionIds = ['projects', 'experience', 'skills', 'contact'];
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navLinks.forEach((link) => {
-            link.classList.remove(
-              'text-cyan-300',
-              'font-semibold',
-              'ring-1',
-              'ring-cyan-500/30',
-              'bg-cyan-500/10'
-            );
-            link.classList.add('text-slate-200/90');
+  const activeClasses = [
+    'text-cyan-300',
+    'font-semibold',
+    'ring-1',
+    'ring-cyan-500/30',
+    'bg-cyan-500/10',
+  ];
+  const idleClasses = ['text-slate-200/90'];
 
-            if (link.getAttribute('data-section') === entry.target.id) {
-              link.classList.remove('text-slate-200/90');
-              link.classList.add(
-                'text-cyan-300',
-                'font-semibold',
-                'ring-1',
-                'ring-cyan-500/30',
-                'bg-cyan-500/10'
-              );
-            }
-          });
-        }
-      });
-    },
-    {
-      threshold: 0.3,
-      rootMargin: '-72px 0px -66% 0px',
+  function clearNavActive() {
+    navLinks.forEach((link) => {
+      link.classList.remove(...activeClasses);
+      link.classList.add(...idleClasses);
+    });
+  }
+
+  function updateActiveNav() {
+    const headerEl = document.getElementById('header');
+    const headerOffset = (headerEl?.getBoundingClientRect().height ?? 72) + 8;
+    const y = window.scrollY + headerOffset;
+
+    const projectsEl = document.getElementById('projects');
+    if (projectsEl) {
+      const projectsTop = projectsEl.getBoundingClientRect().top + window.scrollY;
+      if (y < projectsTop) {
+        clearNavActive();
+        return;
+      }
     }
+
+    let activeId = 'projects';
+    for (const id of sectionIds) {
+      const el = document.getElementById(id);
+      if (!el) continue;
+      const top = el.getBoundingClientRect().top + window.scrollY;
+      if (y >= top) activeId = id;
+    }
+    clearNavActive();
+    navLinks.forEach((link) => {
+      if (link.getAttribute('data-section') === activeId) {
+        link.classList.remove(...idleClasses);
+        link.classList.add(...activeClasses);
+      }
+    });
+  }
+
+  let ticking = false;
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(() => {
+          updateActiveNav();
+          ticking = false;
+        });
+      }
+    },
+    { passive: true }
   );
 
-  sections.forEach((section) => {
-    observer.observe(section);
-  });
+  updateActiveNav();
 </script>
 
 <style>
