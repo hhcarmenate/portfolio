@@ -39,12 +39,11 @@
 
     <!-- Headline -->
     <h1
-      class="reveal max-w-4xl font-bold leading-[0.93] tracking-tight"
+      class="hero-headline reveal max-w-4xl font-bold tracking-tight"
       style="--reveal-delay: 120ms; font-size: clamp(3.4rem, 8vw, 6.75rem);"
       aria-label="Senior Full-Stack Engineer specialized in fintech and SaaS"
     >
-      Senior<br />
-      <span class="hero-gradient-text">Full‑Stack</span><br />
+      Senior <span class="hero-gradient-text">Full‑Stack</span><br />
       Engineer
     </h1>
 
@@ -220,6 +219,14 @@
 </section>
 
 <style>
+  /* Excluded from global h1 gradient; only .hero-gradient-text uses background-clip. */
+  .hero-headline {
+    line-height: 1.12;
+    overflow: visible;
+    padding-bottom: 0.08em;
+    color: #ffffff;
+  }
+
   /* ── Gradient headline ── */
   .hero-gradient-text {
     background: linear-gradient(120deg, #fff 20%, var(--c-secondary) 60%, var(--c-primary));
