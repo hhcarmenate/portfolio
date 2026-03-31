@@ -1,104 +1,301 @@
 ---
-// Experience section
+// Experience — case-study style timeline (aligned with Hero + Projects)
+const roles = [
+  {
+    company: 'TBO Bank',
+    role: 'Senior Full-Stack Engineer',
+    range: 'Feb 2025 – Jan 2026',
+    context:
+      'White-label digital banking platform—modernizing customer-facing portals and operational workflows for production scale.',
+    contributions: [
+      'Led full modernization of the customer portal into a production-grade Vue 3 + Vite stack used under real traffic.',
+      'Integrated high-volume loan lifecycle flows and operational ticketing end-to-end across services and UI.',
+      'Strengthened Laravel services with stronger validation, fault handling, and operational resilience.',
+    ],
+    impact: [
+      { text: 'Cut portal load times by roughly ', highlight: '~35%', after: ' after the rebuild.' },
+      { text: 'Shipped production features across core banking modules with measurable UX and ops wins.' },
+    ],
+    tech: ['Laravel', 'Vue 3', 'Vite', 'AWS', 'MySQL', 'Tailwind'],
+  },
+  {
+    company: 'Hyphen',
+    role: 'Senior Full-Stack Engineer',
+    range: 'Sep 2021 – Feb 2025',
+    context:
+      'Product-led lending technology—performance, multi-brand delivery, and services that scale with the business.',
+    contributions: [
+      'Led development of core product features in Laravel and Vue—APIs and interfaces relied on daily in production.',
+      'Designed and optimized backend services and integrations supporting multi-brand white-label deployments.',
+      'Migrated 40+ modules from Vue 2 to Vue 3 + Vite, improving build speed, DX, and end-user performance.',
+    ],
+    impact: [
+      {
+        text: 'Replaced legacy SOAP partner integrations with ',
+        highlight: 'clean REST APIs',
+        after: ', reducing onboarding complexity and long-term maintenance.',
+      },
+      { text: 'Delivered production-ready capabilities across lending modules with clear ownership from schema to UI.' },
+    ],
+    tech: ['Laravel', 'Vue', 'AWS', 'MySQL', 'Tailwind'],
+  },
+  {
+    company: 'KAR Global (High Tech Locksmith)',
+    role: 'Senior PHP / Full-Stack Engineer',
+    range: 'Jun 2016 – Sep 2021',
+    context:
+      'E-commerce and field-service operations—real-time dispatch, mobile touchpoints, and mission-critical reliability.',
+    contributions: [
+      'Built and maintained commerce and service APIs on Laravel powering warehouse, field, and partner workflows.',
+      'Implemented real-time dispatch and presence using Node.js, Socket.io, and Redis pub/sub alongside operational UIs.',
+      'Improved reliability and throughput with AWS Lambda services, disciplined caching, and tuned MySQL workloads.',
+    ],
+    impact: [
+      {
+        text: 'Proprietary CRM and dispatch stack ',
+        highlight: 'in daily field use',
+        after: ', connecting Android apps, OAuth2 APIs, and Firebase messaging.',
+      },
+      { text: 'Raised backend throughput and reduced infra cost through focused service decomposition and observability.' },
+    ],
+    tech: ['Laravel', 'JavaScript', 'Node.js', 'Redis', 'MySQL', 'AWS'],
+  },
+  {
+    company: 'Freelance / Cuba',
+    role: 'Full-Stack Developer',
+    range: '2008 – 2013',
+    context: 'Custom applications across multiple domains—end-to-end delivery with production expectations.',
+    contributions: [
+      'Built and shipped web applications using Symfony and Laravel—from routing and auth to deployment.',
+      'Designed relational schemas and backend architecture for maintainability and reporting needs.',
+      'Delivered full-stack solutions spanning APIs, admin tools, and customer-facing surfaces.',
+    ],
+    impact: [
+      { text: 'Repeatedly took products from requirements to stable production across heterogeneous client environments.' },
+    ],
+    tech: ['Symfony', 'Laravel', 'MySQL', 'JavaScript', 'PHP'],
+  },
+  {
+    company: 'University of Medical Sciences',
+    role: 'Web & Database Engineer',
+    range: '2013 – 2015',
+    context: 'Academic environment—internal systems, sensitive data, and long-term maintainability.',
+    contributions: [
+      'Secured internal web applications and hardened authentication and session handling.',
+      'Designed and optimized databases supporting internal reporting and operational workflows.',
+      'Maintained internal platforms through iterative releases with minimal downtime for staff.',
+    ],
+    impact: [
+      { text: 'Improved trustworthiness and stability of internal tools used by faculty and administration.' },
+    ],
+    tech: ['PHP', 'MySQL', 'Security hardening'],
+  },
+];
 ---
 
-<section id="experience" class="mx-auto max-w-7xl px-6 section-spacing reveal">
-  <h2 class="h2-divider text-3xl tracking-tight">Experience</h2>
-  <p class="mt-1 text-sm text-slate-300">Recent roles and impact. Keep it concise for quick scanning.</p>
+<section id="experience" class="experience-section mx-auto max-w-7xl px-6 section-spacing reveal">
+  <header class="experience-header max-w-2xl">
+    <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-cyan-400/85 md:text-xs">Experience</p>
+    <h2 class="h2-divider mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">
+      Production systems, measurable outcomes
+    </h2>
+    <p class="mt-3 text-base leading-relaxed text-slate-400">
+      Not a job listing—evidence of shipping, hardening, and improving software under real constraints: performance,
+      integrations, and operational scale.
+    </p>
+  </header>
 
-  <div class="mt-6 grid gap-4 border-l border-cyan-400/20 pl-6">
-    <article class="reveal rounded-3xl bg-gradient-to-br from-white/10 to-white/5 p-8 ring-1 ring-blue-400/40">
-      <div class="flex flex-wrap items-start justify-between gap-3">
-        <div>
-          <div class="flex items-center gap-2">
-            <h3 class="text-lg font-semibold">TBO Bank</h3>
-            <span class="rounded-full bg-cyan-500/20 px-2.5 py-0.5 text-xs font-semibold text-cyan-300 ring-1 ring-cyan-400/40">
-              Current
-            </span>
+  <div class="experience-timeline mt-10 md:mt-12">
+    {
+      roles.map((job, i) => (
+        <article
+          class="experience-entry reveal relative pb-12 md:pb-14 last:pb-0"
+          style={`--reveal-delay: ${i * 48}ms`}
+          aria-labelledby={`exp-${i}-title`}
+        >
+          <span class="experience-node" aria-hidden="true" />
+          <div class="experience-entry-inner grid gap-6 md:grid-cols-[minmax(0,11rem)_1fr] md:gap-10 lg:grid-cols-[minmax(0,13rem)_1fr]">
+            <div class="experience-rail md:pt-0.5">
+              <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">{job.range}</p>
+              <p class="mt-2 text-base font-bold leading-snug text-white">{job.company}</p>
+              {job.current ? (
+                <span class="experience-current mt-3 inline-flex rounded-full border border-cyan-400/35 bg-cyan-500/15 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-cyan-200/95">
+                  Current
+                </span>
+              ) : null}
+            </div>
+
+            <div class="experience-card glass rounded-3xl p-7 md:p-8">
+              <div class="flex flex-wrap items-start justify-between gap-3">
+                <h3 id={`exp-${i}-title`} class="text-lg font-bold tracking-tight text-white md:text-xl">
+                  {job.role}
+                </h3>
+              </div>
+
+              <p class="mt-4 text-sm leading-relaxed text-slate-300 md:text-[15px]">{job.context}</p>
+
+              <p class="experience-block-label mt-6">Contributions</p>
+              <ul class="experience-bullets mt-3 space-y-2.5 text-sm leading-snug text-slate-300 md:text-[15px]">
+                {job.contributions.map((line) => (
+                  <li class="flex gap-3">
+                    <span class="experience-bullet" aria-hidden="true" />
+                    <span>{line}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div class="experience-impact mt-6 rounded-2xl border border-cyan-400/20 bg-cyan-500/[0.06] px-4 py-3.5 md:px-5 md:py-4">
+                <p class="experience-impact-label">Impact</p>
+                <ul class="mt-2 space-y-2 text-sm leading-relaxed text-slate-200 md:text-[15px]">
+                  {job.impact.map((row) => (
+                    <li>
+                      {row.highlight ? (
+                        <>
+                          {row.text}
+                          <strong class="font-semibold text-cyan-200/95">{row.highlight}</strong>
+                          {row.after ?? ''}
+                        </>
+                      ) : (
+                        row.text
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <ul class="project-tags mt-6 flex flex-wrap gap-2" aria-label={`${job.company} — technologies`}>
+                {job.tech.map((t) => (
+                  <li class="project-tag">{t}</li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <p class="text-xs text-slate-400">Senior Full-Stack Engineer • Feb 2025 – Jan 2026</p>
-        </div>
-        <span class="rounded-full bg-blue-500/15 px-3 py-1 text-xs font-semibold text-blue-200 ring-1 ring-blue-400/40">
-          Digital Banking Modernization
-        </span>
-      </div>
-      <ul class="mt-4 space-y-2 text-sm text-slate-300">
-        <li class="flex gap-3"><span class="dot-primary"></span>Led full modernization of a white-label platform into a production-grade digital banking system.</li>
-        <li class="flex gap-3"><span class="dot-secondary"></span>Reduced portal load times by ~35% after rebuilding the customer portal with Vue 3 + Vite.</li>
-        <li class="flex gap-3"><span class="dot-tertiary"></span>Integrated high-volume loan lifecycle workflows and operational ticketing systems end-to-end.</li>
-        <li class="flex gap-3"><span class="dot-accent"></span>Hardened backend services with improved validation layers, resiliency, and fault tolerance.</li>
-      </ul>
-    </article>
-
-    <article class="reveal rounded-3xl card-premium p-8">
-      <div class="flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <h3 class="text-lg font-semibold">Hyphen</h3>
-          <p class="text-xs text-slate-400">Senior Full-Stack Engineer • Sep 2021 – Feb 2025</p>
-        </div>
-        <span class="rounded-full bg-blue-500/15 px-3 py-1 text-xs font-semibold text-blue-200 ring-1 ring-blue-400/40">
-          Multi-Brand Fintech Platform
-        </span>
-      </div>
-      <ul class="mt-4 space-y-2 text-sm text-slate-300">
-        <li class="flex gap-3"><span class="dot-primary"></span>Owned and evolved a multi-brand white-label fintech platform across multiple lending products.</li>
-        <li class="flex gap-3"><span class="dot-secondary"></span>Migrated 40+ modules from Vue 2 to Vue 3 + Vite, improving performance and developer velocity.</li>
-        <li class="flex gap-3"><span class="dot-tertiary"></span>Built modular Laravel services integrated with AWS S3, SES, and SQS for scalable async workflows.</li>
-        <li class="flex gap-3"><span class="dot-accent"></span>Replaced legacy SOAP integrations with clean REST APIs, cutting integration complexity significantly.</li>
-      </ul>
-    </article>
-
-    <article class="reveal rounded-3xl card-premium p-8">
-      <div class="flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <h3 class="text-lg font-semibold">KAR Global (High Tech Locksmith)</h3>
-          <p class="text-xs text-slate-400">Senior PHP / Full-Stack Engineer • Jun 2016 – Sep 2021</p>
-        </div>
-        <span class="rounded-full bg-blue-500/15 px-3 py-1 text-xs font-semibold text-blue-200 ring-1 ring-blue-400/40">
-          CRM & Real-Time Systems
-        </span>
-      </div>
-      <ul class="mt-4 space-y-2 text-sm text-slate-300">
-        <li class="flex gap-3"><span class="dot-primary"></span>Built a proprietary CRM platform from scratch — Laravel, Vue, MySQL, Redis — serving field operations.</li>
-        <li class="flex gap-3"><span class="dot-secondary"></span>Delivered real-time dispatching workflows using Node.js, Socket.io, and Redis pub/sub.</li>
-        <li class="flex gap-3"><span class="dot-tertiary"></span>Designed secure OAuth2 APIs connecting Android mobile apps with Firebase Cloud Messaging.</li>
-        <li class="flex gap-3"><span class="dot-accent"></span>Deployed scalable AWS Lambda microservices, improving backend throughput and reducing infrastructure costs.</li>
-      </ul>
-    </article>
-
-    <article class="reveal rounded-3xl card-premium p-8">
-      <div class="flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <h3 class="text-lg font-semibold">Freelance & Earlier Roles</h3>
-          <p class="text-xs text-slate-400">2008 – 2015 • Symfony/Laravel • Security • Databases</p>
-        </div>
-      </div>
-      <p class="mt-3 text-sm text-slate-300">
-        Built production systems in healthcare, media, and academic institutions using PHP (Symfony, Laravel), MySQL, and
-        JavaScript. Designed secure authentication systems and relational databases.
-      </p>
-    </article>
+        </article>
+      ))
+    }
   </div>
 </section>
 
 <style>
-  .dot-primary {
-    @apply mt-2 h-1.5 w-1.5 shrink-0 rounded-full;
-    background: var(--c-primary);
+  .experience-timeline {
+    position: relative;
+    margin-left: 0.25rem;
+    padding-left: 1.35rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  .dot-secondary {
-    @apply mt-2 h-1.5 w-1.5 shrink-0 rounded-full;
-    background: var(--c-secondary);
+  @media (min-width: 768px) {
+    .experience-timeline {
+      margin-left: 0;
+      padding-left: 1.75rem;
+    }
   }
 
-  .dot-tertiary {
-    @apply mt-2 h-1.5 w-1.5 shrink-0 rounded-full;
-    background: rgba(34, 211, 238, 0.85);
+  .experience-entry {
+    position: relative;
   }
 
-  .dot-accent {
-    @apply mt-2 h-1.5 w-1.5 shrink-0 rounded-full;
-    background: var(--accent-1);
+  .experience-node {
+    position: absolute;
+    left: -1.5rem;
+    top: 0.45rem;
+    width: 11px;
+    height: 11px;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, var(--c-primary), var(--c-secondary));
+    box-shadow:
+      0 0 0 3px rgba(6, 10, 20, 0.95),
+      0 0 14px rgba(34, 211, 238, 0.35);
+  }
+
+  @media (min-width: 768px) {
+    .experience-node {
+      left: -1.87rem;
+      top: 0.35rem;
+    }
+  }
+
+  .experience-card {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 24px 56px -40px rgba(0, 0, 0, 0.75);
+    transition:
+      transform 0.28s ease,
+      border-color 0.28s ease,
+      box-shadow 0.28s ease;
+  }
+
+  .experience-card::before {
+    content: '';
+    position: absolute;
+    left: 1.15rem;
+    right: 1.15rem;
+    top: 0;
+    height: 1px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.28), rgba(37, 99, 235, 0.32), transparent);
+    opacity: 0.85;
+    pointer-events: none;
+  }
+
+  .experience-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.11);
+    box-shadow:
+      0 28px 60px -38px rgba(0, 0, 0, 0.78),
+      0 0 0 1px rgba(34, 211, 238, 0.05);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .experience-card:hover {
+      transform: none;
+    }
+  }
+
+  .experience-block-label {
+    margin: 0;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(148, 163, 184, 0.95);
+  }
+
+  .experience-impact-label {
+    margin: 0;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(34, 211, 238, 0.82);
+  }
+
+  .experience-bullets {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  .experience-impact ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .experience-bullet {
+    margin-top: 0.45rem;
+    height: 6px;
+    width: 6px;
+    flex-shrink: 0;
+    border-radius: 9999px;
+    background: linear-gradient(180deg, rgba(34, 211, 238, 0.9), rgba(37, 99, 235, 0.85));
+    opacity: 0.85;
+  }
+
+  @media (max-width: 767px) {
+    .experience-rail {
+      padding-bottom: 0.25rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
   }
 </style>
