@@ -1,68 +1,70 @@
 ---
 import LucideIcon from './LucideIcon.astro';
-import {
-  Server,
-  LayoutTemplate,
-  Cloud,
-  ClipboardCheck,
-  Layers,
-  BrainCircuit,
-} from 'lucide';
+import { Layers, LayoutTemplate, Database, Workflow } from 'lucide';
 
 const groups = [
   {
-    title: 'Backend',
-    summary: 'APIs, queues, and data layers engineered for clarity and scale.',
-    icon: Server,
+    title: 'Backend & Architecture',
+    summary:
+      'Designing scalable backend systems with clean architecture, modular design, and long-term maintainability.',
+    icon: Layers,
     accent: 'text-blue-300',
     iconBg: 'from-blue-500/25 to-blue-600/10 border-blue-400/25',
-    tags: ['PHP 8.x', 'Laravel 11/12', 'REST APIs', 'Sanctum', 'Queues', 'MySQL'],
+    tags: [
+      'Laravel · PHP',
+      'API Design (REST)',
+      'Modular Systems',
+      'Event-driven design',
+      'DDD principles',
+      'Microservices',
+    ],
   },
   {
-    title: 'Frontend',
-    summary: 'Composable UIs, fast builds, and interfaces that stay maintainable.',
+    title: 'Frontend Systems',
+    summary:
+      'Building modern, high-performance interfaces with strong component architecture and maintainable UI systems.',
     icon: LayoutTemplate,
     accent: 'text-cyan-300',
     iconBg: 'from-cyan-500/25 to-cyan-600/10 border-cyan-400/25',
-    tags: ['Vue 3', 'Vite', 'Pinia', 'Tailwind CSS', 'Vitest'],
+    tags: [
+      'Vue 3 · Vite · Pinia',
+      'Tailwind CSS',
+      'Component Architecture',
+      'Responsive UI',
+      'Frontend Performance',
+      'Testing (Vitest)',
+    ],
   },
   {
-    title: 'Cloud & DevOps',
-    summary: 'Delivery pipelines and cloud primitives that survive production traffic.',
-    icon: Cloud,
+    title: 'Data & Infrastructure',
+    summary:
+      'Managing data layers, integrations, and cloud services to support reliable, production-grade systems.',
+    icon: Database,
     accent: 'text-sky-300',
     iconBg: 'from-sky-500/20 to-sky-600/10 border-sky-400/25',
-    tags: ['AWS S3', 'AWS SES', 'AWS SQS', 'Docker', 'CI/CD'],
+    tags: [
+      'MySQL · PostgreSQL',
+      'AWS (S3 · SES · SQS)',
+      'Docker',
+      'Queues & background jobs',
+      'CI/CD',
+      'System integrations',
+    ],
   },
   {
-    title: 'Practices',
-    summary: 'How work gets done — repeatable quality, not ad-hoc heroics.',
-    icon: ClipboardCheck,
-    accent: 'text-emerald-300',
-    iconBg: 'from-emerald-500/20 to-emerald-600/10 border-emerald-400/25',
-    tags: ['Testing', 'Scrum', 'Performance', 'Code review'],
-  },
-  {
-    title: 'Architecture',
-    summary: 'Boundaries, events, and modular design that reduce long-term risk.',
-    icon: Layers,
+    title: 'Engineering & AI Workflows',
+    summary:
+      'Applying structured engineering practices and AI-assisted workflows to improve speed, quality, and system reliability.',
+    icon: Workflow,
     accent: 'text-violet-300',
     iconBg: 'from-violet-500/22 to-violet-600/10 border-violet-400/25',
-    tags: ['DDD', 'Event-driven', 'Modular systems', 'Microservices'],
-  },
-  {
-    title: 'AI-augmented engineering',
-    summary:
-      'Spec-driven and agent-assisted delivery—faster iteration with reviews, context discipline, and human ownership of quality.',
-    icon: BrainCircuit,
-    accent: 'text-cyan-200',
-    iconBg: 'from-cyan-500/25 to-blue-600/10 border-cyan-400/25',
     tags: [
-      'AI-assisted implementation',
-      'Agentic workflows',
-      'Spec-driven development',
-      'Prompt & context design',
-      'Human-in-the-loop review',
+      'Clean Architecture',
+      'Testing & Debugging',
+      'Performance Optimization',
+      'Code Reviews',
+      'AI-assisted development',
+      'Spec-driven workflows',
     ],
   },
 ];
@@ -72,15 +74,14 @@ const groups = [
   <header class="skills-header max-w-2xl">
     <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-cyan-400/85 md:text-xs">Skills</p>
     <h2 class="h2-divider mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">
-      Depth across the stack — plus modern delivery
+      A clear capability map
     </h2>
     <p class="mt-3 text-base leading-relaxed text-slate-400">
-      Capabilities grouped the way hiring teams scan them: concrete tech, proven practices, and pragmatic AI-augmented
-      workflows.
+      Structured strengths across the stack — how systems are designed, built, shipped, and kept reliable.
     </p>
   </header>
 
-  <div class="mt-10 grid auto-rows-fr gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-7">
+  <div class="mt-10 grid auto-rows-fr gap-7 md:grid-cols-2 md:gap-8">
     {
       groups.map((g, i) => (
         <article
@@ -96,12 +97,12 @@ const groups = [
           >
             <LucideIcon icon={g.icon} size={26} class={g.accent} />
           </div>
-          <h3 id={`skill-${i}-title`} class="mt-5 text-lg font-bold tracking-tight text-white md:text-xl">
+          <h3 id={`skill-${i}-title`} class="mt-5 text-xl font-bold tracking-tight text-white md:text-2xl">
             {g.title}
           </h3>
           <p class="mt-3 flex-1 text-sm leading-relaxed text-slate-400 md:text-[15px]">{g.summary}</p>
-          <p class="skill-tags-label mt-6">Focus</p>
-          <ul class="project-tags mt-3 flex flex-wrap gap-2" aria-label={`${g.title} — focus areas`}>
+          <p class="skill-tags-label mt-7">Capabilities</p>
+          <ul class="project-tags mt-3 flex flex-wrap gap-2" aria-label={`${g.title} — capabilities`}>
             {g.tags.map((t) => (
               <li class="project-tag">{t}</li>
             ))}
