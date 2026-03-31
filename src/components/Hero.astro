@@ -1,128 +1,157 @@
 ---
-// Hero section — editorial centered layout with bento card grid
+// Hero — premium product-engineering narrative + supporting bento
 ---
 
-<section class="relative flex min-h-screen flex-col" id="top" role="banner" aria-label="Hero section - Senior Full-Stack Engineer">
-
-  <!-- ── Top strip: availability + label ── -->
-  <div class="mx-auto w-full max-w-6xl px-6 pt-8 flex items-center justify-between">
-    <div
-      class="reveal inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs backdrop-blur-sm"
-      style="--reveal-delay: 0ms"
-      role="status"
-      aria-label="Currently available for remote work in Miami, Florida"
-    >
-      <span class="relative flex h-2 w-2 shrink-0" aria-hidden="true">
-        <span class="ping-dot absolute inline-flex h-full w-full rounded-full opacity-75" style="background: var(--c-secondary)"></span>
-        <span class="relative inline-flex h-2 w-2 rounded-full" style="background: var(--c-secondary)"></span>
-      </span>
-      <span class="text-slate-300">Available for remote work · Miami, FL</span>
+<section class="hero-section relative flex min-h-screen flex-col" id="top" role="banner" aria-label="Hero — Senior Full-Stack Engineer">
+  <!-- Top meta: availability + positioning tag (single scan line) -->
+  <div class="hero-shell mx-auto w-full max-w-6xl px-6 pt-8">
+    <div class="hero-meta reveal flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between" style="--reveal-delay: 0ms">
+      <div
+        class="inline-flex w-fit items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-2 text-xs backdrop-blur-sm"
+        role="status"
+        aria-label="Available for remote opportunities; based in Miami, Florida"
+      >
+        <span class="relative flex h-2 w-2 shrink-0" aria-hidden="true">
+          <span class="ping-dot absolute inline-flex h-full w-full rounded-full opacity-75" style="background: var(--c-secondary)"></span>
+          <span class="relative inline-flex h-2 w-2 rounded-full" style="background: var(--c-secondary)"></span>
+        </span>
+        <span class="text-slate-300">Open to remote · Miami, FL</span>
+      </div>
+      <p class="text-[10px] font-medium uppercase tracking-[0.22em] text-slate-500">
+        Fintech · SaaS · Platforms
+      </p>
     </div>
-    <span class="reveal text-[10px] uppercase tracking-widest text-slate-500" style="--reveal-delay: 0ms" aria-hidden="true">
-      2026 · Fintech &amp; SaaS
-    </span>
   </div>
 
-  <!-- ── Center stage ── -->
-  <div class="flex flex-1 flex-col items-center justify-center px-6 pb-6 pt-12 text-center">
-
-    <!-- Eyebrow -->
-    <p
-      class="reveal mb-7 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300/80"
-      style="--reveal-delay: 60ms"
-      aria-hidden="true"
-    >
-      <span class="h-px w-10 bg-cyan-400/30"></span>
-      Laravel · Vue · AWS
-      <span class="h-px w-10 bg-cyan-400/30"></span>
-    </p>
-
-    <!-- Headline -->
-    <h1
-      class="hero-headline reveal max-w-4xl font-bold tracking-tight"
-      style="--reveal-delay: 120ms; font-size: clamp(3.4rem, 8vw, 6.75rem);"
-      aria-label="Senior Full-Stack Engineer specialized in fintech and SaaS"
-    >
-      Senior <span class="hero-gradient-text">Full‑Stack</span><br />
-      Engineer
-    </h1>
-
-    <!-- Bio -->
-    <p
-      class="reveal mt-8 max-w-lg text-base leading-relaxed text-slate-400"
-      style="--reveal-delay: 220ms"
-    >
-      15+ years building fintech and SaaS platforms — high-volume APIs,
-      scalable modules, and product-grade UX across the full stack.
-    </p>
-
-    <!-- CTAs -->
-    <div class="reveal mt-8 flex flex-wrap items-center justify-center gap-3" style="--reveal-delay: 300ms">
-      <a
-        class="glow-pulse inline-flex items-center justify-center rounded-2xl px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition-all duration-300"
-        href="#contact"
-        aria-label="Contact me"
-        style="background: linear-gradient(135deg, var(--c-primary), var(--c-secondary))"
+  <!-- Main narrative -->
+  <div class="hero-shell mx-auto flex w-full max-w-6xl flex-1 flex-col px-6 pb-8 pt-6 md:pt-10">
+    <div class="hero-narrative mx-auto w-full max-w-3xl text-center">
+      <p
+        class="reveal mb-5 text-[11px] font-semibold uppercase tracking-[0.18em] text-cyan-400/90 md:text-xs"
+        style="--reveal-delay: 50ms"
       >
-        Contact me
-      </a>
-      <a
-        class="inline-flex items-center justify-center rounded-2xl bg-white/5 px-7 py-3.5 text-sm font-semibold transition-colors duration-300 ring-1 ring-white/10 hover:bg-white/10"
-        href="#projects"
-        aria-label="View projects"
+        Senior Full-Stack · Laravel · Vue · PHP · AWS
+      </p>
+
+      <h1
+        class="hero-headline reveal font-bold tracking-tight text-white"
+        style="--reveal-delay: 100ms; font-size: clamp(2.75rem, 7.5vw, 5.75rem);"
+        aria-label="Senior Full-Stack Engineer specializing in fintech and SaaS"
       >
-        View projects
-      </a>
-      <a
-        class="inline-flex items-center justify-center rounded-2xl bg-transparent px-7 py-3.5 text-sm font-semibold text-slate-300 transition-colors duration-300 ring-1 ring-white/10 hover:bg-white/5"
-        href="mailto:henrycarmenateg@gmail.com"
-        aria-label="Send email"
+        Senior <span class="hero-gradient-text">Full‑Stack</span><br />
+        Engineer
+      </h1>
+
+      <p class="reveal hero-tagline mt-5 text-sm font-medium text-slate-300 md:text-base" style="--reveal-delay: 150ms">
+        Scalable web products — APIs, services, and product-grade interfaces for teams that ship.
+      </p>
+
+      <p
+        class="reveal mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed text-slate-400 md:text-base"
+        style="--reveal-delay: 180ms"
       >
-        Email
-      </a>
+        15+ years delivering production fintech and SaaS: high-volume APIs, thoughtful architecture, and UX that
+        holds up under real load — MySQL, PostgreSQL, and AWS included.
+      </p>
+
+      <ul
+        class="reveal mx-auto mt-7 flex max-w-xl flex-wrap justify-center gap-2 md:gap-2.5"
+        style="--reveal-delay: 220ms"
+        aria-label="Focus areas"
+      >
+        <li class="hero-chip">SaaS &amp; platform work</li>
+        <li class="hero-chip">Production APIs</li>
+        <li class="hero-chip">Laravel &amp; Vue</li>
+        <li class="hero-chip">Product-minded delivery</li>
+      </ul>
+
+      <div class="reveal mt-9 flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-3" style="--reveal-delay: 280ms">
+        <a
+          class="hero-cta-primary glow-pulse inline-flex min-h-[44px] w-full items-center justify-center rounded-2xl px-8 py-3.5 text-sm font-semibold text-white shadow-lg transition-transform duration-300 hover:-translate-y-0.5 sm:w-auto"
+          href="#contact"
+          aria-label="Go to contact section"
+        >
+          Get in touch
+        </a>
+        <a
+          class="hero-cta-secondary inline-flex min-h-[44px] w-full items-center justify-center rounded-2xl border border-white/15 bg-white/[0.04] px-8 py-3.5 text-sm font-semibold text-slate-100 backdrop-blur-sm transition-all duration-300 hover:border-white/25 hover:bg-white/[0.08] sm:w-auto"
+          href="#projects"
+          aria-label="View selected projects"
+        >
+          View selected work
+        </a>
+      </div>
+
+      <p class="reveal mt-4 text-sm text-slate-500" style="--reveal-delay: 320ms">
+        <a
+          class="underline decoration-white/20 underline-offset-4 transition-colors hover:text-cyan-300/90 hover:decoration-cyan-400/40"
+          href="mailto:henrycarmenateg@gmail.com"
+        >
+          henrycarmenateg@gmail.com
+        </a>
+      </p>
+
+      <div
+        class="reveal hero-metrics mt-10 border-y border-white/[0.07] py-8 md:mt-12"
+        style="--reveal-delay: 360ms"
+        role="group"
+        aria-label="Career impact metrics"
+      >
+        <div class="flex flex-wrap items-start justify-center gap-x-10 gap-y-6 sm:gap-x-14">
+          <div class="hero-metric text-center sm:text-left">
+            <p class="hero-metric-value" aria-label="More than fifteen years experience">15+</p>
+            <p class="hero-metric-label">Years in production engineering</p>
+          </div>
+          <div class="hidden h-10 w-px bg-white/10 sm:block" aria-hidden="true"></div>
+          <div class="hero-metric text-center sm:text-left">
+            <p class="hero-metric-value" aria-label="More than forty modules migrated">40+</p>
+            <p class="hero-metric-label">Features &amp; modules shipped</p>
+          </div>
+          <div class="hidden h-10 w-px bg-white/10 sm:block" aria-hidden="true"></div>
+          <div class="hero-metric text-center sm:text-left">
+            <p class="hero-metric-value" aria-label="Thirty five percent load time reduction">35%</p>
+            <p class="hero-metric-label">Measured performance win</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- ── Bento grid of glass cards ── -->
-    <div
-      class="reveal mt-12 grid w-full max-w-5xl gap-4 lg:grid-cols-3"
-      style="--reveal-delay: 390ms"
-    >
-
-      <!-- Card 1: Highlights -->
-      <div class="glass rounded-3xl p-6 text-left" role="region" aria-label="Career highlights">
-        <h2 class="h2-divider mb-4 text-[10px] font-semibold uppercase tracking-widest text-slate-400">Highlights</h2>
-        <ul class="space-y-3.5 text-sm text-slate-300" role="list">
-          <li class="flex gap-3 leading-snug" role="listitem">
+    <!-- Supporting bento -->
+    <div class="reveal mx-auto mt-10 grid w-full max-w-5xl gap-4 md:mt-12 lg:grid-cols-3" style="--reveal-delay: 420ms">
+      <div class="hero-card glass rounded-3xl p-6 text-left md:p-7" role="region" aria-label="Career highlights">
+        <h2 class="hero-card-title h2-divider text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-400">Highlights</h2>
+        <ul class="mt-5 space-y-4 text-sm leading-snug text-slate-300" role="list">
+          <li class="flex gap-3" role="listitem">
             <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" style="background: var(--c-primary)" aria-hidden="true"></span>
             Led modernization of high-volume fintech portals and API platforms.
           </li>
-          <li class="flex gap-3 leading-snug" role="listitem">
+          <li class="flex gap-3" role="listitem">
             <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" style="background: var(--c-secondary)" aria-hidden="true"></span>
             Built scalable modules: RSVP, guests, menus, locations, permissions, activity logs.
           </li>
-          <li class="flex gap-3 leading-snug" role="listitem">
+          <li class="flex gap-3" role="listitem">
             <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" style="background: rgba(34,211,238,0.85)" aria-hidden="true"></span>
-            Strong product mindset: UX polish, performance, observability, and maintainability.
+            Product mindset: UX polish, performance, observability, maintainability.
           </li>
         </ul>
       </div>
 
-      <!-- Card 2: Tech + Logos -->
-      <div class="glass rounded-3xl p-6 text-left" role="region" aria-label="Tech stack and trusted companies">
-        <h2 class="h2-divider mb-4 text-[10px] font-semibold uppercase tracking-widest text-slate-400">Tech Stack</h2>
-        <div class="flex flex-wrap gap-2" role="list">
-          <span class="rounded-full bg-white/[0.06] px-3 py-1 text-[11px] text-slate-300 ring-1 ring-white/[0.08]" role="listitem">Laravel 11/12</span>
-          <span class="rounded-full bg-white/[0.06] px-3 py-1 text-[11px] text-slate-300 ring-1 ring-white/[0.08]" role="listitem">Vue 3 + Vite</span>
-          <span class="rounded-full bg-white/[0.06] px-3 py-1 text-[11px] text-slate-300 ring-1 ring-white/[0.08]" role="listitem">Pinia</span>
-          <span class="rounded-full bg-white/[0.06] px-3 py-1 text-[11px] text-slate-300 ring-1 ring-white/[0.08]" role="listitem">REST APIs</span>
-          <span class="rounded-full bg-white/[0.06] px-3 py-1 text-[11px] text-slate-300 ring-1 ring-white/[0.08]" role="listitem">AWS S3/SES/SQS</span>
-          <span class="rounded-full bg-white/[0.06] px-3 py-1 text-[11px] text-slate-300 ring-1 ring-white/[0.08]" role="listitem">Docker / CI/CD</span>
+      <div class="hero-card glass rounded-3xl p-6 text-left md:p-7" role="region" aria-label="Technology stack and employers">
+        <h2 class="hero-card-title h2-divider text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-400">Core stack</h2>
+        <div class="mt-5 flex flex-wrap gap-2" role="list">
+          <span class="hero-stack-pill" role="listitem">Laravel 11/12</span>
+          <span class="hero-stack-pill" role="listitem">PHP</span>
+          <span class="hero-stack-pill" role="listitem">Vue 3 · Vite</span>
+          <span class="hero-stack-pill" role="listitem">Pinia</span>
+          <span class="hero-stack-pill" role="listitem">REST APIs</span>
+          <span class="hero-stack-pill" role="listitem">MySQL · PostgreSQL</span>
+          <span class="hero-stack-pill" role="listitem">AWS</span>
+          <span class="hero-stack-pill" role="listitem">Docker / CI/CD</span>
         </div>
 
-        <div class="mt-6 border-t border-white/[0.06] pt-5">
-          <p class="mb-4 text-[10px] uppercase tracking-widest text-slate-400">Trusted experience with</p>
-          <div class="flex flex-wrap items-center gap-4" role="list">
-
+        <div class="mt-7 border-t border-white/[0.06] pt-6">
+          <p class="hero-card-title mb-4 text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-400">Trusted experience</p>
+          <div class="flex flex-wrap items-center gap-3 md:gap-4" role="list">
             <a
               class="logo-badge"
               role="listitem"
@@ -131,10 +160,9 @@
               rel="noopener noreferrer"
               aria-label="TBO Bank on LinkedIn (opens in new tab)"
             >
-              <img src="/logos/the_bank_of_orrick_logo.jfif" alt="" class="h-12 w-auto object-contain" />
+              <img src="/logos/the_bank_of_orrick_logo.jfif" alt="" class="h-11 w-auto object-contain md:h-12" />
               <span class="logo-tooltip">TBO Bank</span>
             </a>
-
             <a
               class="logo-badge"
               role="listitem"
@@ -143,10 +171,9 @@
               rel="noopener noreferrer"
               aria-label="Hyphen Finance on LinkedIn (opens in new tab)"
             >
-              <img src="/logos/hyphenfi_logo.jfif" alt="" class="h-12 w-auto object-contain" />
+              <img src="/logos/hyphenfi_logo.jfif" alt="" class="h-11 w-auto object-contain md:h-12" />
               <span class="logo-tooltip">Hyphen Finance</span>
             </a>
-
             <a
               class="logo-badge"
               role="listitem"
@@ -155,18 +182,16 @@
               rel="noopener noreferrer"
               aria-label="OPENLANE on LinkedIn (opens in new tab)"
             >
-              <img src="/logos/kar_auction_services_inc_logo.jfif" alt="" class="h-12 w-auto object-contain" />
+              <img src="/logos/kar_auction_services_inc_logo.jfif" alt="" class="h-11 w-auto object-contain md:h-12" />
               <span class="logo-tooltip">OPENLANE</span>
             </a>
-
           </div>
         </div>
       </div>
 
-      <!-- Card 3: Contact -->
-      <div class="glass rounded-3xl p-6 text-left" role="region" aria-label="Contact information">
-        <h2 class="h2-divider mb-4 text-[10px] font-semibold uppercase tracking-widest text-slate-400">Contact</h2>
-        <nav class="grid gap-2 text-sm">
+      <div class="hero-card glass rounded-3xl p-6 text-left md:p-7" role="region" aria-label="Contact">
+        <h2 class="hero-card-title h2-divider text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-400">Contact</h2>
+        <nav class="mt-5 grid gap-2 text-sm" aria-label="Contact links">
           <a
             class="flex items-center gap-2.5 rounded-xl bg-white/5 px-3.5 py-2.5 transition-colors duration-300 ring-1 ring-white/10 hover:bg-white/10"
             href="mailto:henrycarmenateg@gmail.com"
@@ -205,42 +230,22 @@
           </a>
         </nav>
       </div>
-
     </div>
   </div>
 
-  <!-- ── Bottom stats bar ── -->
-  <div class="border-t border-white/[0.06]">
-    <div class="reveal mx-auto flex max-w-6xl items-center justify-between px-6 py-5" style="--reveal-delay: 500ms">
-      <div class="flex items-center gap-8 lg:gap-14" role="doc-credits">
-        <div>
-          <p class="text-2xl font-bold text-cyan-300" aria-label="15 years of experience">15+</p>
-          <p class="text-xs text-slate-400">Years Experience</p>
-        </div>
-        <div class="h-8 w-px bg-white/10" aria-hidden="true"></div>
-        <div>
-          <p class="text-2xl font-bold text-cyan-300" aria-label="40 or more modules migrated">40+</p>
-          <p class="text-xs text-slate-400">Modules Migrated</p>
-        </div>
-        <div class="h-8 w-px bg-white/10" aria-hidden="true"></div>
-        <div>
-          <p class="text-2xl font-bold text-cyan-300" aria-label="35 percent load time reduced">35%</p>
-          <p class="text-xs text-slate-400">Load Time Reduced</p>
-        </div>
-      </div>
-      <div class="scroll-hint flex flex-col items-center gap-1.5 opacity-40 outline-none" aria-hidden="true" role="img">
-        <p class="text-[10px] uppercase tracking-widest text-slate-400">Scroll</p>
-        <svg class="h-4 w-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+  <div class="hero-scroll-ledge border-t border-white/[0.06]">
+    <div class="hero-shell mx-auto flex max-w-6xl items-center justify-end px-6 py-4 md:py-5">
+      <div class="scroll-hint flex flex-col items-center gap-1.5 opacity-45 outline-none" aria-hidden="true">
+        <p class="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-400">Scroll</p>
+        <svg class="h-4 w-4 text-cyan-400/90" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
         </svg>
       </div>
     </div>
   </div>
-
 </section>
 
 <style>
-  /* Excluded from global h1 gradient; only .hero-gradient-text uses background-clip. */
   .hero-headline {
     line-height: 1.12;
     overflow: visible;
@@ -248,34 +253,111 @@
     color: #ffffff;
   }
 
-  /* ── Gradient headline ── */
   .hero-gradient-text {
-    background: linear-gradient(120deg, #fff 20%, var(--c-secondary) 60%, var(--c-primary));
+    background: linear-gradient(120deg, #fff 20%, var(--c-secondary) 58%, var(--c-primary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  /* ── Availability ping ── */
+  .hero-chip {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 0.4rem 0.85rem;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: #cbd5e1;
+    list-style: none;
+  }
+
+  .hero-cta-primary {
+    background: linear-gradient(135deg, var(--c-primary), var(--c-secondary));
+  }
+
+  .hero-metrics .hero-metric-value {
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--c-primary);
+    line-height: 1.1;
+  }
+
+  .hero-metrics .hero-metric-label {
+    margin-top: 0.35rem;
+    max-width: 9rem;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 11px;
+    line-height: 1.35;
+    color: #94a3b8;
+  }
+
+  @media (min-width: 640px) {
+    .hero-metrics .hero-metric-label {
+      margin-left: 0;
+      margin-right: 0;
+      max-width: 10.5rem;
+    }
+  }
+
+  .hero-card {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow: 0 24px 48px -32px rgba(0, 0, 0, 0.65);
+  }
+
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    top: 0;
+    height: 1px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.35), rgba(37, 99, 235, 0.45), transparent);
+    opacity: 0.85;
+    pointer-events: none;
+  }
+
+  .hero-card-title.h2-divider::after {
+    width: 56px;
+    margin-top: 8px;
+  }
+
+  .hero-stack-pill {
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.3rem 0.7rem;
+    font-size: 11px;
+    color: #cbd5e1;
+    letter-spacing: 0.01em;
+  }
+
   .ping-dot {
     animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
   }
 
   @keyframes ping {
-    75%, 100% { transform: scale(2.2); opacity: 0; }
+    75%, 100% {
+      transform: scale(2.2);
+      opacity: 0;
+    }
   }
 
-  /* ── CTA glow pulse ── */
   .glow-pulse {
-    animation: glowPulse 2.2s ease-in-out infinite;
+    animation: glowPulse 2.4s ease-in-out infinite;
   }
 
   @keyframes glowPulse {
-    0%, 100% { box-shadow: 0 0 18px rgba(34, 211, 238, 0.35); }
-    50%       { box-shadow: 0 0 38px rgba(34, 211, 238, 0.60); }
+    0%, 100% { box-shadow: 0 0 16px rgba(34, 211, 238, 0.28); }
+    50%       { box-shadow: 0 0 32px rgba(34, 211, 238, 0.45); }
   }
 
-  /* ── Scroll hint bounce ── */
   .scroll-hint {
     animation: scrollBounce 2s ease-in-out infinite;
   }
@@ -285,12 +367,11 @@
     50%       { transform: translateY(5px); }
   }
 
-  /* ── Reveal animation ── */
   .reveal {
     animation: revealFade 700ms ease forwards;
     opacity: 0;
-    transform: translateY(20px);
-    filter: blur(6px);
+    transform: translateY(18px);
+    filter: blur(5px);
   }
 
   .reveal.reveal--visible {
@@ -299,14 +380,21 @@
   }
 
   @keyframes revealFade {
-    to { opacity: 0; transform: translateY(20px); filter: blur(6px); }
+    to {
+      opacity: 0;
+      transform: translateY(18px);
+      filter: blur(5px);
+    }
   }
 
   @keyframes revealShow {
-    to { opacity: 1; transform: translateY(0); filter: blur(0); }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
   }
 
-  /* ── Reduced motion ── */
   @media (prefers-reduced-motion: reduce) {
     .glow-pulse,
     .ping-dot,
@@ -322,7 +410,6 @@
     }
   }
 
-  /* ── Company logo badges with tooltip ── */
   .logo-badge {
     position: relative;
     display: inline-flex;
@@ -333,7 +420,7 @@
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.08);
     filter: grayscale(1);
-    opacity: 0.8;
+    opacity: 0.82;
     transition: filter 0.3s ease, opacity 0.3s ease, background 0.3s ease;
     cursor: pointer;
     text-decoration: none;
@@ -387,7 +474,6 @@
     transform: translateX(-50%) translateY(0);
   }
 
-  /* ── Print styles ── */
   @media print {
     .scroll-hint,
     .ping-dot {
