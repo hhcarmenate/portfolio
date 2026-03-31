@@ -1,119 +1,119 @@
 ---
-// Hero — premium product-engineering narrative + supporting bento
+// Hero — senior full-stack narrative (versatile, execution-focused)
 ---
 
 <section class="hero-section relative flex min-h-screen flex-col" id="top" role="banner" aria-label="Hero — Senior Full-Stack Engineer">
-  <!-- Top meta: availability + positioning tag (single scan line) -->
-  <div class="hero-shell mx-auto w-full max-w-6xl px-6 pt-8">
+  <!-- Top meta: availability + seniority / stack signal -->
+  <div class="hero-shell mx-auto w-full max-w-6xl px-6 pt-8 md:pt-9">
     <div class="hero-meta reveal flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between" style="--reveal-delay: 0ms">
       <div
-        class="inline-flex w-fit items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-2 text-xs backdrop-blur-sm"
+        class="hero-availability-pill inline-flex w-fit items-center gap-2.5 rounded-full border border-white/12 bg-white/[0.045] px-4 py-2 text-xs backdrop-blur-sm"
         role="status"
-        aria-label="Available for remote opportunities; based in Miami, Florida"
+        aria-label="Available for remote roles; based in Miami, Florida"
       >
         <span class="relative flex h-2 w-2 shrink-0" aria-hidden="true">
           <span class="ping-dot absolute inline-flex h-full w-full rounded-full opacity-75" style="background: var(--c-secondary)"></span>
           <span class="relative inline-flex h-2 w-2 rounded-full" style="background: var(--c-secondary)"></span>
         </span>
-        <span class="text-slate-300">Open to remote · Miami, FL</span>
+        <span class="text-slate-200">Available for remote roles · Miami, FL</span>
       </div>
-      <p class="text-[10px] font-medium uppercase tracking-[0.22em] text-slate-500">
-        Fintech · SaaS · Platforms
-      </p>
+      <div
+        class="hero-meta-stack inline-flex max-w-full flex-wrap items-center justify-start gap-x-1.5 rounded-full border border-white/10 bg-white/[0.035] px-3.5 py-2 text-left text-[11px] font-medium leading-snug tracking-wide text-slate-400 backdrop-blur-sm sm:justify-end sm:px-4 sm:text-xs sm:tracking-normal"
+        aria-label="Core technologies: Laravel, Vue, PHP, JavaScript, Tailwind, SQL, AWS"
+      >
+        <span class="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500 sm:text-[11px]">Stack</span>
+        <span class="text-white/25 select-none" aria-hidden="true">|</span>
+        <span class="text-slate-300">Laravel · Vue · PHP · JS · Tailwind · SQL · AWS</span>
+      </div>
     </div>
   </div>
 
   <!-- Main narrative -->
-  <div class="hero-shell mx-auto flex w-full max-w-6xl flex-1 flex-col px-6 pb-8 pt-6 md:pt-10">
+  <div class="hero-shell mx-auto flex w-full max-w-6xl flex-1 flex-col px-6 pb-8 pt-8 md:pt-12">
     <div class="hero-narrative mx-auto w-full max-w-3xl text-center">
-      <p
-        class="reveal mb-5 text-[11px] font-semibold uppercase tracking-[0.18em] text-cyan-400/90 md:text-xs"
-        style="--reveal-delay: 50ms"
-      >
-        Senior Full-Stack · Laravel · Vue · PHP · AWS
-      </p>
-
       <h1
-        class="hero-headline reveal font-bold tracking-tight text-white"
-        style="--reveal-delay: 100ms; font-size: clamp(2.75rem, 7.5vw, 5.75rem);"
-        aria-label="Senior Full-Stack Engineer specializing in fintech and SaaS"
+        class="hero-headline reveal mx-auto max-w-4xl font-bold tracking-tight text-white"
+        style="--reveal-delay: 80ms"
+        aria-label="Senior Full-Stack Engineer building scalable production-grade software across the full stack"
       >
-        Senior <span class="hero-gradient-text">Full‑Stack</span><br />
-        Engineer
+        <span class="hero-h1-line1 block" style="font-size: clamp(2.5rem, 6.5vw, 4.35rem); line-height: 1.08;">
+          Senior Full‑Stack Engineer
+        </span>
+        <span
+          class="hero-h1-line2 mx-auto mt-3 block max-w-2xl font-semibold tracking-tight text-slate-200 md:mt-4"
+          style="font-size: clamp(1.2rem, 2.75vw, 1.65rem); line-height: 1.35;"
+        >
+          Building <span class="hero-gradient-text hero-gradient-text-glow">scalable, production‑grade</span> software
+          <span class="text-slate-400">— end to end.</span>
+        </span>
       </h1>
 
-      <p class="reveal hero-tagline mt-5 text-sm font-medium text-slate-300 md:text-base" style="--reveal-delay: 150ms">
-        Scalable web products — APIs, services, and product-grade interfaces for teams that ship.
-      </p>
+      <div
+        class="reveal hero-proof-rail mx-auto mt-8 flex flex-wrap items-center justify-center gap-2 md:mt-10 md:gap-3"
+        style="--reveal-delay: 140ms"
+        role="group"
+        aria-label="Career proof points"
+      >
+        <span class="hero-proof-badge">
+          <span class="hero-proof-value">15+</span>
+          <span class="hero-proof-label">yrs in production</span>
+        </span>
+        <span class="hero-proof-badge">
+          <span class="hero-proof-value">40+</span>
+          <span class="hero-proof-label">modules shipped</span>
+        </span>
+        <span class="hero-proof-badge">
+          <span class="hero-proof-value">35%</span>
+          <span class="hero-proof-label">load-time win</span>
+        </span>
+      </div>
 
       <p
-        class="reveal mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed text-slate-400 md:text-base"
+        class="reveal mx-auto mt-8 max-w-2xl text-[15px] leading-[1.65] text-slate-400 md:mt-9 md:text-base"
         style="--reveal-delay: 180ms"
       >
-        15+ years delivering production fintech and SaaS: high-volume APIs, thoughtful architecture, and UX that
-        holds up under real load — MySQL, PostgreSQL, and AWS included.
+        15+ years crafting high‑performance, maintainable applications with
+        <strong class="font-medium text-slate-300">Laravel, Vue, PHP, JavaScript, Tailwind, MySQL, PostgreSQL,</strong>
+        and <strong class="font-medium text-slate-300">AWS</strong>
+        — from APIs and data layers to interfaces users rely on daily, in demanding real‑world environments.
       </p>
 
       <ul
-        class="reveal mx-auto mt-7 flex max-w-xl flex-wrap justify-center gap-2 md:gap-2.5"
+        class="reveal mx-auto mt-8 flex max-w-xl flex-wrap justify-center gap-2 md:mt-9 md:gap-2.5"
         style="--reveal-delay: 220ms"
-        aria-label="Focus areas"
+        aria-label="How I work"
       >
-        <li class="hero-chip">SaaS &amp; platform work</li>
-        <li class="hero-chip">Production APIs</li>
-        <li class="hero-chip">Laravel &amp; Vue</li>
-        <li class="hero-chip">Product-minded delivery</li>
+        <li class="hero-chip">Full‑stack ownership</li>
+        <li class="hero-chip">APIs &amp; services</li>
+        <li class="hero-chip">Architecture that lasts</li>
+        <li class="hero-chip">Performance &amp; clarity</li>
       </ul>
 
-      <div class="reveal mt-9 flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-3" style="--reveal-delay: 280ms">
+      <div class="reveal mt-10 flex flex-col items-stretch gap-3 sm:mt-11 sm:flex-row sm:items-center sm:justify-center sm:gap-4" style="--reveal-delay: 280ms">
         <a
-          class="hero-cta-primary glow-pulse inline-flex min-h-[44px] w-full items-center justify-center rounded-2xl px-8 py-3.5 text-sm font-semibold text-white shadow-lg transition-transform duration-300 hover:-translate-y-0.5 sm:w-auto"
+          class="hero-cta-primary glow-pulse inline-flex min-h-[48px] w-full items-center justify-center rounded-2xl px-9 py-3.5 text-[15px] font-semibold text-white shadow-[0_12px_40px_-12px_rgba(34,211,238,0.45)] transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 sm:w-auto sm:min-w-[200px]"
           href="#contact"
-          aria-label="Go to contact section"
+          aria-label="Get in touch via contact section"
         >
           Get in touch
         </a>
         <a
-          class="hero-cta-secondary inline-flex min-h-[44px] w-full items-center justify-center rounded-2xl border border-white/15 bg-white/[0.04] px-8 py-3.5 text-sm font-semibold text-slate-100 backdrop-blur-sm transition-all duration-300 hover:border-white/25 hover:bg-white/[0.08] sm:w-auto"
+          class="hero-cta-secondary inline-flex min-h-[48px] w-full items-center justify-center rounded-2xl border border-white/12 bg-white/[0.03] px-9 py-3.5 text-[15px] font-medium text-slate-300 backdrop-blur-sm transition-colors duration-300 hover:border-white/22 hover:bg-white/[0.07] hover:text-slate-100 sm:w-auto"
           href="#projects"
-          aria-label="View selected projects"
+          aria-label="View selected work and projects"
         >
           View selected work
         </a>
       </div>
 
-      <p class="reveal mt-4 text-sm text-slate-500" style="--reveal-delay: 320ms">
+      <p class="reveal mt-5 text-sm text-slate-500" style="--reveal-delay: 320ms">
         <a
-          class="underline decoration-white/20 underline-offset-4 transition-colors hover:text-cyan-300/90 hover:decoration-cyan-400/40"
+          class="underline decoration-white/18 underline-offset-[5px] transition-colors hover:text-cyan-300/90 hover:decoration-cyan-500/35"
           href="mailto:henrycarmenateg@gmail.com"
         >
           henrycarmenateg@gmail.com
         </a>
       </p>
-
-      <div
-        class="reveal hero-metrics mt-10 border-y border-white/[0.07] py-8 md:mt-12"
-        style="--reveal-delay: 360ms"
-        role="group"
-        aria-label="Career impact metrics"
-      >
-        <div class="flex flex-wrap items-start justify-center gap-x-10 gap-y-6 sm:gap-x-14">
-          <div class="hero-metric text-center sm:text-left">
-            <p class="hero-metric-value" aria-label="More than fifteen years experience">15+</p>
-            <p class="hero-metric-label">Years in production engineering</p>
-          </div>
-          <div class="hidden h-10 w-px bg-white/10 sm:block" aria-hidden="true"></div>
-          <div class="hero-metric text-center sm:text-left">
-            <p class="hero-metric-value" aria-label="More than forty modules migrated">40+</p>
-            <p class="hero-metric-label">Features &amp; modules shipped</p>
-          </div>
-          <div class="hidden h-10 w-px bg-white/10 sm:block" aria-hidden="true"></div>
-          <div class="hero-metric text-center sm:text-left">
-            <p class="hero-metric-value" aria-label="Thirty five percent load time reduction">35%</p>
-            <p class="hero-metric-label">Measured performance win</p>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- Supporting bento -->
@@ -254,10 +254,56 @@
   }
 
   .hero-gradient-text {
-    background: linear-gradient(120deg, #fff 20%, var(--c-secondary) 58%, var(--c-primary));
+    background: linear-gradient(120deg, #f8fafc 15%, var(--c-secondary) 52%, var(--c-primary) 92%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  .hero-gradient-text-glow {
+    filter: drop-shadow(0 0 20px rgba(34, 211, 238, 0.12));
+  }
+
+  .hero-proof-rail {
+    max-width: 42rem;
+  }
+
+  .hero-proof-badge {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    background: linear-gradient(165deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.02));
+    padding: 0.55rem 1rem 0.6rem;
+    text-align: left;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .hero-proof-value {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--c-primary);
+  }
+
+  .hero-proof-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #94a3b8;
+    max-width: 7.5rem;
+    line-height: 1.25;
+  }
+
+  @media (min-width: 640px) {
+    .hero-proof-label {
+      font-size: 10px;
+      max-width: none;
+    }
   }
 
   .hero-chip {
@@ -276,32 +322,6 @@
 
   .hero-cta-primary {
     background: linear-gradient(135deg, var(--c-primary), var(--c-secondary));
-  }
-
-  .hero-metrics .hero-metric-value {
-    font-size: clamp(1.5rem, 3.5vw, 2rem);
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    color: var(--c-primary);
-    line-height: 1.1;
-  }
-
-  .hero-metrics .hero-metric-label {
-    margin-top: 0.35rem;
-    max-width: 9rem;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 11px;
-    line-height: 1.35;
-    color: #94a3b8;
-  }
-
-  @media (min-width: 640px) {
-    .hero-metrics .hero-metric-label {
-      margin-left: 0;
-      margin-right: 0;
-      max-width: 10.5rem;
-    }
   }
 
   .hero-card {
@@ -401,6 +421,9 @@
     .scroll-hint,
     .h2-divider {
       animation: none;
+    }
+    .hero-gradient-text-glow {
+      filter: none;
     }
     .reveal {
       opacity: 1;
