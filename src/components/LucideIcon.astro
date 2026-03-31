@@ -1,0 +1,19 @@
+---
+import type { IconNode } from 'lucide';
+import { lucideToSvg } from '../lib/lucide-ssr';
+
+interface Props {
+  icon: IconNode;
+  size?: number;
+  class?: string;
+}
+
+const { icon, size = 22, class: className = '' } = Astro.props;
+const svg = lucideToSvg(icon, { size });
+---
+
+<span
+  class:list={['inline-flex shrink-0 items-center justify-center text-current', className]}
+  aria-hidden="true"
+  set:html={svg}
+/>
