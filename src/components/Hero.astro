@@ -124,20 +124,41 @@
           <p class="mb-4 text-[10px] uppercase tracking-widest text-slate-400">Trusted experience with</p>
           <div class="flex flex-wrap items-center gap-4" role="list">
 
-            <div class="logo-badge" role="listitem" aria-label="The Bank of Orrick">
-              <img src="/logos/the_bank_of_orrick_logo.jfif" alt="The Bank of Orrick" class="h-12 w-auto object-contain" />
-              <span class="logo-tooltip">The Bank of Orrick</span>
-            </div>
+            <a
+              class="logo-badge"
+              role="listitem"
+              href="https://www.linkedin.com/company/the-bank-of-orrick/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TBO Bank on LinkedIn (opens in new tab)"
+            >
+              <img src="/logos/the_bank_of_orrick_logo.jfif" alt="" class="h-12 w-auto object-contain" />
+              <span class="logo-tooltip">TBO Bank</span>
+            </a>
 
-            <div class="logo-badge" role="listitem" aria-label="Hyphen Finance">
-              <img src="/logos/hyphenfi_logo.jfif" alt="Hyphen Finance" class="h-12 w-auto object-contain" />
+            <a
+              class="logo-badge"
+              role="listitem"
+              href="https://www.linkedin.com/company/hyphenfi/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Hyphen Finance on LinkedIn (opens in new tab)"
+            >
+              <img src="/logos/hyphenfi_logo.jfif" alt="" class="h-12 w-auto object-contain" />
               <span class="logo-tooltip">Hyphen Finance</span>
-            </div>
+            </a>
 
-            <div class="logo-badge" role="listitem" aria-label="KAR Global">
-              <img src="/logos/kar_auction_services_inc_logo.jfif" alt="KAR Global" class="h-12 w-auto object-contain" />
-              <span class="logo-tooltip">KAR Global</span>
-            </div>
+            <a
+              class="logo-badge"
+              role="listitem"
+              href="https://www.linkedin.com/company/openlane/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="OPENLANE on LinkedIn (opens in new tab)"
+            >
+              <img src="/logos/kar_auction_services_inc_logo.jfif" alt="" class="h-12 w-auto object-contain" />
+              <span class="logo-tooltip">OPENLANE</span>
+            </a>
 
           </div>
         </div>
@@ -307,7 +328,14 @@
     filter: grayscale(1);
     opacity: 0.8;
     transition: filter 0.3s ease, opacity 0.3s ease, background 0.3s ease;
-    cursor: default;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .logo-badge:focus-visible {
+    outline: 2px solid var(--c-primary);
+    outline-offset: 3px;
   }
 
   .logo-badge:hover {
