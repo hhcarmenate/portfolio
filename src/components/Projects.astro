@@ -1,134 +1,280 @@
 ---
-// Projects section
+// Projects — mini case-study cards (premium hierarchy)
 ---
 
-<section id="projects" class="section-spacing mx-auto max-w-7xl px-6 reveal">
-  <div class="flex items-end justify-between gap-4">
-    <div>
-      <h2 class="h2-divider text-3xl tracking-tight">Selected Work</h2>
-      <p class="mt-1 text-sm text-slate-300">A few things I'm building and refining.</p>
-    </div>
-  </div>
+<section id="projects" class="projects-section section-spacing mx-auto max-w-7xl px-6 reveal">
+  <header class="projects-section-header max-w-2xl">
+    <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-cyan-400/85 md:text-xs">Selected work</p>
+    <h2 class="h2-divider mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">Real systems, shipped with care</h2>
+    <p class="mt-3 text-base leading-relaxed text-slate-400">
+      Product-grade engineering: clear architecture, honest trade-offs, and outcomes you can measure — not demo-only polish.
+    </p>
+  </header>
 
-  <p class="mt-8 text-xs font-semibold uppercase tracking-widest text-slate-500">Main Projects</p>
-  <div class="mt-3 grid gap-4 md:grid-cols-2">
-    <!-- CWM -->
-    <article class="reveal rounded-3xl card-premium p-8">
-      <div class="flex items-start justify-between gap-4">
-        <h3 class="text-lg font-semibold">Celebrate It With Me (CWM)</h3>
-        <span class="rounded-full bg-white/5 px-3 py-1 text-xs text-slate-300 ring-1 ring-white/10">SaaS</span>
+  <div class="mt-10 grid gap-6 lg:gap-8 md:grid-cols-2">
+    <!-- Celebrate It With Me -->
+    <article
+      class="project-case reveal glass rounded-3xl p-7 md:p-8"
+      style="--reveal-delay: 60ms"
+      aria-labelledby="projects-cwm-title"
+    >
+      <div class="flex flex-wrap items-start justify-between gap-3">
+        <span class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] font-medium uppercase tracking-wider text-slate-400">
+          SaaS
+        </span>
       </div>
-      <p class="mt-3 text-sm text-slate-300">
-        Event SaaS for weddings & quinceañeras: public event pages, RSVP flows, guest management, menus, locations,
-        design themes, and modular features.
+
+      <h3 id="projects-cwm-title" class="mt-5 text-xl font-bold leading-snug tracking-tight text-white md:text-2xl">
+        Celebrate It With Me — Event Platform
+      </h3>
+
+      <p class="mt-4 text-sm leading-relaxed text-slate-300 md:text-[15px]">
+        A modular event platform designed to manage guest experiences end-to-end — from invitations and RSVP flows to
+        interactive features like music suggestions and event timelines.
       </p>
-      <ul class="mt-4 grid gap-2 text-sm text-slate-300">
-        <li class="flex gap-3">
-          <span class="dot-primary"></span>Laravel API + Vue 3 front-end with Pinia, Tailwind
-        </li>
-        <li class="flex gap-3">
-          <span class="dot-secondary"></span>AWS: S3 uploads, SES email, queue-ready architecture
-        </li>
-        <li class="flex gap-3">
-          <span class="dot-tertiary"></span>Theme templates + config-driven rendering (in progress)
-        </li>
-      </ul>
-      <div class="mt-5 flex flex-wrap gap-2">
-        <span class="rounded-full bg-white/5 px-3 py-1 text-xs ring-1 ring-white/10">Laravel</span>
-        <span class="rounded-full bg-white/5 px-3 py-1 text-xs ring-1 ring-white/10">Vue 3</span>
-        <span class="rounded-full bg-white/5 px-3 py-1 text-xs ring-1 ring-white/10">Tailwind</span>
-        <span class="rounded-full bg-white/5 px-3 py-1 text-xs ring-1 ring-white/10">AWS</span>
+
+      <div class="project-tech-highlight">
+        <p class="project-tech-highlight-label">Technical highlight</p>
+        <p class="project-tech-highlight-body">
+          Built with a scalable, module-based architecture, enabling dynamic features such as RSVP workflows, guest
+          management, and real-time interactions.
+        </p>
       </div>
-      <div class="mt-6 flex gap-3">
+
+      <div class="project-impact">
+        <p class="project-impact-label">Impact</p>
+        <p class="project-impact-body">
+          Designed to support customizable event experiences while maintaining performance, flexibility, and clean
+          separation of concerns.
+        </p>
+      </div>
+
+      <ul class="project-tags mt-6 flex flex-wrap gap-2" aria-label="Celebrate It With Me — focus tags">
+        <li class="project-tag">Modular architecture</li>
+        <li class="project-tag">Dynamic RSVP flows</li>
+        <li class="project-tag">Real-time interactions</li>
+        <li class="project-tag">API-driven design</li>
+      </ul>
+
+      <div class="project-cta-row mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         <a
-          class="ring-brand cursor-not-allowed rounded-2xl bg-white/5 px-4 py-2 text-sm font-semibold text-slate-400 ring-1 ring-white/5"
-          aria-disabled="true"
-          tabindex="-1"
-        >
-          Demo <span class="text-xs">In progress</span>
-        </a>
-        <a
-          class="ring-brand rounded-2xl px-4 py-2 text-sm font-semibold text-white transition-all duration-300 hover:scale-105"
-          style="background: linear-gradient(135deg, var(--c-primary), var(--c-secondary))"
+          class="project-cta-primary inline-flex min-h-[44px] items-center justify-center rounded-2xl px-6 py-3 text-sm font-semibold text-white transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5"
           href="#experience"
         >
-          What I built
+          Explore architecture
+        </a>
+        <a
+          class="project-cta-secondary inline-flex min-h-[44px] items-center justify-center rounded-2xl border border-white/14 bg-white/[0.03] px-6 py-3 text-sm font-medium text-slate-200 transition-colors duration-300 hover:border-white/22 hover:bg-white/[0.07]"
+          href="#contact"
+        >
+          View details
         </a>
       </div>
     </article>
 
     <!-- OptionEdge -->
-    <article class="reveal rounded-3xl card-premium p-8">
-      <div class="flex items-start justify-between gap-4">
-        <h3 class="text-lg font-semibold">OptionEdge (Personal)</h3>
-        <span class="rounded-full bg-white/5 px-3 py-1 text-xs text-slate-300 ring-1 ring-white/10">Fintech tooling</span>
+    <article
+      class="project-case reveal glass rounded-3xl p-7 md:p-8"
+      style="--reveal-delay: 120ms"
+      aria-labelledby="projects-oe-title"
+    >
+      <div class="flex flex-wrap items-start justify-between gap-3">
+        <span class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] font-medium uppercase tracking-wider text-slate-400">
+          Trading &amp; analytics
+        </span>
       </div>
-      <p class="mt-3 text-sm text-slate-300">
-        Concept work for an options/stock assistant: watchlists, alerts, analytics, and data pipelines. Focused on robust
-        architecture and extensibility.
+
+      <h3 id="projects-oe-title" class="mt-5 text-xl font-bold leading-snug tracking-tight text-white md:text-2xl">
+        OptionEdge — Trading Analysis Platform
+      </h3>
+
+      <p class="mt-4 text-sm leading-relaxed text-slate-300 md:text-[15px]">
+        A trading analysis platform designed to detect high-probability setups using technical indicators, feature
+        engineering, and rule-based evaluation.
       </p>
-      <ul class="mt-4 grid gap-2 text-sm text-slate-300">
-        <li class="flex gap-3"><span class="dot-primary"></span>API-first design with clean service boundaries</li>
-        <li class="flex gap-3"><span class="dot-secondary"></span>Planned integrations: market data, notifications, dashboards</li>
-        <li class="flex gap-3"><span class="dot-tertiary"></span>Personal project (not public yet)</li>
-      </ul>
-      <div class="mt-5 flex flex-wrap gap-2">
-        <span class="rounded-full bg-white/5 px-3 py-1 text-xs ring-1 ring-white/10">Architecture</span>
-        <span class="rounded-full bg-white/5 px-3 py-1 text-xs ring-1 ring-white/10">Notifications</span>
-        <span class="rounded-full bg-white/5 px-3 py-1 text-xs ring-1 ring-white/10">Pipelines</span>
+
+      <div class="project-tech-highlight">
+        <p class="project-tech-highlight-label">Technical highlight</p>
+        <p class="project-tech-highlight-body">
+          Built with a custom analytics engine that processes market data into indicators, features, and scored setups
+          across multiple timeframes.
+        </p>
       </div>
-      <div class="mt-6 flex gap-3">
+
+      <div class="project-impact">
+        <p class="project-impact-label">Impact</p>
+        <p class="project-impact-body">
+          Transforms raw market data into structured insights for more consistent, data-driven decision-making.
+        </p>
+      </div>
+
+      <ul class="project-tags mt-6 flex flex-wrap gap-2" aria-label="OptionEdge — focus tags">
+        <li class="project-tag">Indicator engine</li>
+        <li class="project-tag">Feature engineering</li>
+        <li class="project-tag">Multi-timeframe analysis</li>
+        <li class="project-tag">Rule-based scoring</li>
+      </ul>
+
+      <div class="project-cta-row mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         <a
-          class="ring-brand cursor-not-allowed rounded-2xl bg-white/5 px-4 py-2 text-sm font-semibold text-slate-400 ring-1 ring-white/5"
-          aria-disabled="true"
-          tabindex="-1"
-        >
-          Notes <span class="text-xs">In progress</span>
-        </a>
-        <a
-          class="ring-brand rounded-2xl px-4 py-2 text-sm font-semibold text-white transition-all duration-300 hover:scale-105"
-          style="background: linear-gradient(135deg, var(--c-primary), var(--c-secondary))"
+          class="project-cta-primary inline-flex min-h-[44px] items-center justify-center rounded-2xl px-6 py-3 text-sm font-semibold text-white transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5"
           href="#contact"
         >
-          Talk about it
+          View project
+        </a>
+        <a
+          class="project-cta-secondary inline-flex min-h-[44px] items-center justify-center rounded-2xl border border-white/14 bg-white/[0.03] px-6 py-3 text-sm font-medium text-slate-200 transition-colors duration-300 hover:border-white/22 hover:bg-white/[0.07]"
+          href="#contact"
+        >
+          View details
         </a>
       </div>
     </article>
   </div>
 
-  <p class="mt-8 text-xs font-semibold uppercase tracking-widest text-slate-500">Engineering Areas</p>
-  <div class="mt-3 grid gap-4 md:grid-cols-3">
-    <article class="reveal rounded-3xl card-premium p-8">
-      <h3 class="text-base font-semibold">Public Templates</h3>
-      <p class="mt-2 text-sm text-slate-300">High-fidelity event templates with premium effects and mobile-first UX.</p>
-      <p class="mt-3 text-xs text-slate-400">Example: Habana Nights theme.</p>
-    </article>
-    <article class="reveal rounded-3xl card-premium p-8">
-      <h3 class="text-base font-semibold">Automation & AI</h3>
-      <p class="mt-2 text-sm text-slate-300">Exploring n8n automations and AI-assisted workflows for product teams.</p>
-      <p class="mt-3 text-xs text-slate-400">Agent-style integrations planned.</p>
-    </article>
-    <article class="reveal rounded-3xl card-premium p-8">
-      <h3 class="text-base font-semibold">Cloud & Observability</h3>
-      <p class="mt-2 text-sm text-slate-300">Production-minded engineering: logs, metrics, tracing, and clean deploy pipelines.</p>
-      <p class="mt-3 text-xs text-slate-400">FullStory experience across apps.</p>
-    </article>
+  <div class="mt-14 border-t border-white/[0.06] pt-12">
+    <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">Engineering focus</p>
+    <div class="mt-5 grid gap-4 sm:grid-cols-3">
+      <article class="project-footnote reveal rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 md:p-6" style="--reveal-delay: 160ms">
+        <h4 class="text-sm font-semibold text-slate-200">Templates &amp; UX craft</h4>
+        <p class="mt-2 text-sm leading-relaxed text-slate-400">
+          High-fidelity event templates — mobile-first, accessible patterns.
+        </p>
+      </article>
+      <article class="project-footnote reveal rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 md:p-6" style="--reveal-delay: 200ms">
+        <h4 class="text-sm font-semibold text-slate-200">Automation &amp; AI</h4>
+        <p class="mt-2 text-sm leading-relaxed text-slate-400">
+          Workflow automation and AI-assisted tooling for product teams.
+        </p>
+      </article>
+      <article class="project-footnote reveal rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5 md:p-6" style="--reveal-delay: 240ms">
+        <h4 class="text-sm font-semibold text-slate-200">Cloud &amp; observability</h4>
+        <p class="mt-2 text-sm leading-relaxed text-slate-400">
+          Logs, metrics, tracing, and deploy pipelines that hold up in production.
+        </p>
+      </article>
+    </div>
   </div>
 </section>
 
 <style>
-  .dot-primary {
-    @apply mt-2 h-1.5 w-1.5 shrink-0 rounded-full;
-    background: var(--c-primary);
+  .project-case {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow: 0 24px 56px -36px rgba(0, 0, 0, 0.75);
+    transition:
+      transform 0.28s ease,
+      box-shadow 0.28s ease,
+      border-color 0.28s ease;
   }
 
-  .dot-secondary {
-    @apply mt-2 h-1.5 w-1.5 shrink-0 rounded-full;
-    background: var(--c-secondary);
+  .project-case::before {
+    content: '';
+    position: absolute;
+    left: 1.25rem;
+    right: 1.25rem;
+    top: 0;
+    height: 1px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.35), rgba(37, 99, 235, 0.4), transparent);
+    opacity: 0.85;
+    pointer-events: none;
   }
 
-  .dot-tertiary {
-    @apply mt-2 h-1.5 w-1.5 shrink-0 rounded-full;
-    background: rgba(34, 211, 238, 0.85);
+  .project-case:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.11);
+    box-shadow:
+      0 32px 64px -36px rgba(0, 0, 0, 0.78),
+      0 0 0 1px rgba(34, 211, 238, 0.06);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-case:hover {
+      transform: none;
+    }
+  }
+
+  .project-tech-highlight {
+    margin-top: 1.25rem;
+    border-left: 2px solid rgba(34, 211, 238, 0.45);
+    border-radius: 0 12px 12px 0;
+    background: rgba(34, 211, 238, 0.055);
+    padding: 0.9rem 1rem 0.95rem 1rem;
+  }
+
+  .project-tech-highlight-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(34, 211, 238, 0.88);
+    margin: 0 0 0.4rem;
+  }
+
+  .project-tech-highlight-body {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.55;
+    color: #e2e8f0;
+  }
+
+  .project-impact {
+    margin-top: 1.15rem;
+  }
+
+  .project-impact-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #64748b;
+    margin: 0 0 0.35rem;
+  }
+
+  .project-impact-body {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.55;
+    color: #94a3b8;
+  }
+
+  .project-tag {
+    list-style: none;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 0.28rem 0.65rem;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: #cbd5e1;
+  }
+
+  .project-cta-primary {
+    background: linear-gradient(135deg, var(--c-primary), var(--c-secondary));
+    box-shadow: 0 10px 32px -14px rgba(34, 211, 238, 0.45);
+  }
+
+  .project-cta-primary:hover {
+    box-shadow: 0 14px 40px -12px rgba(34, 211, 238, 0.5);
+  }
+
+  .project-footnote {
+    transition: border-color 0.25s ease, background 0.25s ease;
+  }
+
+  .project-footnote:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.035);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-case {
+      transition: none;
+    }
+    .project-footnote {
+      transition: none;
+    }
   }
 </style>
