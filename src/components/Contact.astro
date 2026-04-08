@@ -2,6 +2,8 @@
 import LucideIcon from './LucideIcon.astro';
 import { Mail, Phone, Link2, Send } from 'lucide';
 
+const web3formsAccessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY ?? '';
+
 const channels = [
   {
     label: 'Email',
@@ -29,7 +31,7 @@ const channels = [
 
 <section id="contact" class="contact-section mx-auto max-w-7xl px-6 section-spacing reveal">
   <header class="contact-header max-w-2xl">
-    <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-cyan-400/85 md:text-xs">Contact</p>
+    <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-teal-400/85 md:text-xs">Contact</p>
     <h2 class="h2-divider mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">
       Let’s build something that holds up in production
     </h2>
@@ -53,7 +55,7 @@ const channels = [
                   rel={c.external ? 'noopener noreferrer' : undefined}
                   aria-label={c.external ? `${c.label} (opens in a new tab)` : c.label}
                 >
-                  <span class="contact-channel-icon inline-flex rounded-xl border border-white/10 bg-white/[0.04] p-2.5 text-cyan-300/95">
+                  <span class="contact-channel-icon inline-flex rounded-xl border border-white/10 bg-white/[0.04] p-2.5 text-teal-300/95">
                     <LucideIcon icon={c.icon} size={20} />
                   </span>
                   <span class="min-w-0">
@@ -77,7 +79,7 @@ const channels = [
       <div class="lg:col-span-7">
         <div class="contact-form-wrap rounded-3xl border border-white/[0.08] bg-slate-950/35 p-6 md:p-8">
           <div class="flex items-center gap-3">
-            <span class="inline-flex rounded-xl border border-cyan-400/25 bg-cyan-500/10 p-2 text-cyan-200">
+            <span class="inline-flex rounded-xl border border-teal-400/25 bg-teal-500/10 p-2 text-teal-200">
               <LucideIcon icon={Send} size={20} />
             </span>
             <div>
@@ -94,7 +96,7 @@ const channels = [
                 </label>
                 <input
                   id="email-input"
-                  class="contact-input w-full rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3.5 text-sm text-slate-100 placeholder:text-slate-500 transition-colors duration-300 focus:border-cyan-400/40 focus:bg-white/[0.07] focus:outline-none focus:ring-2 focus:ring-cyan-400/20"
+                  class="contact-input w-full rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3.5 text-sm text-slate-100 placeholder:text-slate-500 transition-colors duration-300 focus:border-teal-400/40 focus:bg-white/[0.07] focus:outline-none focus:ring-2 focus:ring-teal-400/20"
                   placeholder="you@company.com"
                   type="email"
                   name="email"
@@ -108,18 +110,26 @@ const channels = [
                 </label>
                 <textarea
                   id="message-input"
-                  class="contact-input min-h-[132px] w-full rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3.5 text-sm text-slate-100 placeholder:text-slate-500 transition-colors duration-300 focus:border-cyan-400/40 focus:bg-white/[0.07] focus:outline-none focus:ring-2 focus:ring-cyan-400/20"
+                  class="contact-input min-h-[132px] w-full rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3.5 text-sm text-slate-100 placeholder:text-slate-500 transition-colors duration-300 focus:border-teal-400/40 focus:bg-white/[0.07] focus:outline-none focus:ring-2 focus:ring-teal-400/20"
                   placeholder="Role, stack, timeline, and what you need delivered."
                   rows="4"
                   name="message"
+                  required
                 />
               </div>
+              <p
+                id="contact-form-status"
+                class="min-h-5 text-sm leading-snug text-slate-400 empty:hidden"
+                role="status"
+                aria-live="polite"
+              />
               <button
-                class="contact-submit inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-2xl px-6 py-3.5 text-sm font-semibold text-white transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 sm:w-auto"
+                id="contact-form-submit"
+                class="contact-submit inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-2xl px-6 py-3.5 text-sm font-semibold text-white transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 sm:w-auto"
                 type="submit"
               >
                 <LucideIcon icon={Send} size={18} class="opacity-95" />
-                Send message
+                <span data-submit-label>Send message</span>
               </button>
             </div>
           </form>
@@ -140,16 +150,16 @@ const channels = [
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: rgba(34, 211, 238, 0.82);
+    color: rgba(94, 234, 212, 0.78);
   }
 
   .contact-submit {
-    background: linear-gradient(135deg, var(--c-primary), var(--c-secondary));
-    box-shadow: 0 10px 32px -14px rgba(34, 211, 238, 0.45);
+    background: linear-gradient(135deg, var(--accent-2), var(--c-primary));
+    box-shadow: 0 10px 32px -14px rgba(45, 212, 191, 0.28);
   }
 
   .contact-submit:hover {
-    box-shadow: 0 14px 40px -12px rgba(34, 211, 238, 0.5);
+    box-shadow: 0 14px 40px -12px rgba(45, 212, 191, 0.32);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -159,13 +169,64 @@ const channels = [
   }
 </style>
 
-<script>
-  const contactForm = document.getElementById('contact-form');
+<script define:vars={{ web3formsAccessKey }}>
+  (function () {
+    const form = document.getElementById('contact-form');
+    const statusEl = document.getElementById('contact-form-status');
+    const submitBtn = document.getElementById('contact-form-submit');
+    const submitLabel = submitBtn?.querySelector('[data-submit-label]');
 
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    if (!form || !statusEl) return;
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      // Wire to Formspree, Basin, etc. when ready.
+      statusEl.textContent = '';
+      statusEl.classList.remove('text-teal-300/95', 'text-red-300/90');
+
+      if (!web3formsAccessKey) {
+        statusEl.classList.add('text-red-300/90');
+        statusEl.textContent =
+          'Contact form is not configured. Add PUBLIC_WEB3FORMS_ACCESS_KEY to your environment and rebuild.';
+        return;
+      }
+
+      const fd = new FormData(form);
+      const email = String(fd.get('email') ?? '').trim();
+      const message = String(fd.get('message') ?? '').trim();
+
+      submitBtn?.setAttribute('disabled', 'true');
+      if (submitLabel) submitLabel.textContent = 'Sending…';
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            access_key: web3formsAccessKey,
+            subject: 'Portfolio contact',
+            from_name: email.includes('@') ? email.split('@')[0] : 'Portfolio visitor',
+            email,
+            message,
+          }),
+        });
+        const data = await res.json();
+
+        if (data.success) {
+          statusEl.classList.add('text-teal-300/95');
+          statusEl.textContent = 'Thanks — your message was sent. I’ll get back to you soon.';
+          form.reset();
+        } else {
+          statusEl.classList.add('text-red-300/90');
+          statusEl.textContent =
+            typeof data.message === 'string' ? data.message : 'Something went wrong. Try email or LinkedIn instead.';
+        }
+      } catch {
+        statusEl.classList.add('text-red-300/90');
+        statusEl.textContent = 'Network error. Please try again or use the email link above.';
+      } finally {
+        submitBtn?.removeAttribute('disabled');
+        if (submitLabel) submitLabel.textContent = 'Send message';
+      }
     });
-  }
+  })();
 </script>
